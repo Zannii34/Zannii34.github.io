@@ -76,7 +76,7 @@ section { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
-.project img { width: 100%; display: block; }
+.project img { width: 100%;Border-radius: 15px; object-fit:cover;height: 200px; }
 .project h3 { margin: 15px; }
 .project p { margin: 10px 15px; }
 .project a { color: #1e90ff; text-decoration: underline; }
