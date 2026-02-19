@@ -15,8 +15,6 @@ The website is hosted for free using **GitHub Pages** and is accessible on:
 ## 🔗 Live Website
 👉 https://Zannii34.github.io/
 
-(Replace `YOUR_USERNAME` with your GitHub username)
-
 ---
 
 ## 🛠️ Technologies Used
