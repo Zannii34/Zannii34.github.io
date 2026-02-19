@@ -123,4 +123,95 @@ body.dark-mode .education-item { background: #333; color: #f9f9f9; }
 body.dark-mode header { background: linear-gradient(135deg, #5555ff, #00aaff); }
 body.dark-mode .skill { background: #5555ff; }
 body.dark-mode .contact-links a { color: #00ffff; }
- 
+
+/* Certifications Section */
+#certifications {
+  max-width: 1200px;
+  margin: 60px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+#certifications h2 {
+  color: #ff7f50;
+  font-size: 2.5em;
+  margin-bottom: 30px;
+}
+
+/* Certificate Cards */
+#certifications .projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+}
+
+#certifications .project {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s, background 0.3s;
+  cursor: pointer;
+}
+
+#certifications .project:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+}
+
+#certifications .project img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #eee;
+  transition: transform 0.3s;
+}
+
+#certifications .project:hover img {
+  transform: scale(1.05);
+}
+
+#certifications .project h3 {
+  margin: 15px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+#certifications .project p {
+  margin: 10px 15px;
+  color: #555;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+#certifications .project a {
+  display: inline-block;
+  margin: 10px 15px 20px;
+  padding: 8px 15px;
+  background: linear-gradient(135deg, #ff7f50, #ff1493);
+  color: #fff;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s, transform 0.2s;
+}
+
+#certifications .project a:hover {
+  background: linear-gradient(135deg, #ff4500, #ff69b4);
+  transform: scale(1.05);
+}
+
+/* Dark Mode Styling for Certificates */
+body.dark-mode #certifications .project {
+  background: #222;
+  color: #f9f9f9;
+}
+
+body.dark-mode #certifications h2 {
+  color: #ffb347;
+}
+
+body.dark-mode #certifications .project p {
+  color: #ddd;
+}
+
