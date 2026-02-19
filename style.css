@@ -215,3 +215,15 @@ body.dark-mode #certifications .project p {
   color: #ddd;
 }
 
+/* Scroll Fade-In Animation */
+.fade-in-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+.fade-in-card.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
