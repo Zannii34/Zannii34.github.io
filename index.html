@@ -46,7 +46,7 @@
 
 <section id="projects">
   <h2>Projects</h2>
-  <div class="projects fade-in-card">
+  <div class="projects">
     <div class="project">
       <img src="project1-screenshot.png" alt="Student Management System">
       <h3>Student Management System</h3>
@@ -55,7 +55,7 @@
       <p><a href="https://github.com/Zannii34/student-management">GitHub Repo</a> | <a href="https://Zannii34.github.io/student-management">Live Demo</a></p>
     </div>
 
-    <div class="project fade-in-card">
+    <div class="project">
       <img src="portfolio-screenshot.jpeg" alt="Portfolio Website Screenshot">
       <h3>Portfolio Website</h3>
       <p>My personal portfolio to showcase skills and projects.</p>
@@ -63,7 +63,7 @@
       <p><a href="https://github.com/Zannii34/Zannii34.github.io">GitHub Repo</a> | <a href="https://Zannii34.github.io/">Live Demo</a></p>
     </div>
 
-    <div class="project fade-in-card">
+    <div class="project">
       <img src="https://via.placeholder.com/300x200.png?text=Weather+App" alt="Weather App">
       <h3>Weather App</h3>
       <p>A JavaScript app that fetches weather data for any city using API.</p>
@@ -71,7 +71,7 @@
       <p><a href="https://github.com/Zannii34/weather-app">GitHub Repo</a></p>
     </div>
 
-    <div class="project fade-in-card">
+    <div class="project">
       <img src="https://via.placeholder.com/300x200.png?text=ToDo+App" alt="ToDo App">
       <h3>ToDo App</h3>
       <p>A simple task manager where users can add, complete, and delete tasks.</p>
@@ -79,7 +79,7 @@
       <p><a href="https://github.com/Zannii34/todo-app">GitHub Repo</a></p>
     </div>
 
-    <div class="project fade-in-card  ">
+    <div class="project">
       <img src="https://via.placeholder.com/300x200.png?text=Calculator+App" alt="Calculator App">
       <h3>Calculator App</h3>
       <p>A basic calculator to perform arithmetic operations.</p>
@@ -209,23 +209,7 @@
     document.body.classList.toggle('dark-mode');
     darkBtn.textContent = document.body.classList.contains('dark-mode') ? "☀️ Light Mode" : "🌙 Dark Mode";
   });
-  
-  // Fade-in on scroll for certificate cards
-const fadeCards = document.querySelectorAll('.fade-in-card');
-
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if(entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target); // Only animate once
-    }
-  });
-}, {
-  threshold: 0.2
-});
-
-fadeCards.forEach(card => observer.observe(card));
-  
+    
 </script>
 
 </body>
