@@ -12,9 +12,8 @@
       background-color: #f9f9f9;
       color: #333;
       scroll-behavior: smooth;
+      transition: background 0.3s, color 0.3s;
     }
- 
-    /* Header */
     header {
       background: linear-gradient(135deg, #1e90ff, #00bfff);
       color: white;
@@ -24,99 +23,47 @@
     header h1 { font-size: 3em; margin-bottom: 10px; }
     header p { font-size: 1.3em; }
  
-    /* Section Titles */
-    h2 {
-      color: #1e90ff;
-      text-align: center;
-      margin-bottom: 25px;
-      font-size: 2em;
-    }
+    h2 { color: #1e90ff; text-align: center; margin-bottom: 25px; }
  
-    /* Sections */
     section { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
  
-    /* About Me */
-    #about p { font-size: 1.1em; line-height: 1.6; }
- 
-    /* Skills */
     .skills { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-    .skill {
-      background: #1e90ff;
-      color: white;
-      padding: 10px 20px;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: transform 0.3s;
-    }
+    .skill { background: #1e90ff; color: white; padding: 10px 20px; border-radius: 30px; font-weight: bold; transition: transform 0.3s; }
     .skill:hover { transform: scale(1.1); }
  
-    /* Education / Course Sheet */
-    .education-sheet {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      margin: 20px auto;
-      max-width: 600px;
-    }
- 
-    /* Projects */
-    .projects {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
-    .project {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .project:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
+    .projects { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; }
+    .project { background: white; border-radius: 15px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); overflow: hidden; transition: transform 0.3s, box-shadow 0.3s; }
+    .project:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.15); }
     .project img { width: 100%; display: block; }
     .project h3 { margin: 15px; }
     .project p { margin: 10px 15px; }
     .project a { color: #1e90ff; text-decoration: underline; }
  
-    /* Contact / Social Links */
-    .contact-links a {
-      margin-right: 15px;
-      color: #1e90ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
+    .contact-links a { margin-right: 15px; color: #1e90ff; font-weight: bold; text-decoration: none; }
     .contact-links a:hover { text-decoration: underline; }
  
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #1e90ff;
-      color: white;
-      margin-top: 50px;
-    }
+    footer { text-align: center; padding: 20px; background: #1e90ff; color: white; margin-top: 50px; }
+ 
+    /* Dark Mode Styles */
+    body.dark-mode { background: #1c1c1c; color: #f9f9f9; }
+    body.dark-mode .project { background: #333; color: #f9f9f9; }
+    body.dark-mode header { background: linear-gradient(135deg, #5555ff, #00aaff); }
+    body.dark-mode .skill { background: #5555ff; }
   </style>
 </head>
 <body>
  
 <header>
   <h1>Wayne Kamachetera</h1>
-  <p>Junior Developer | IT Programming Student | Still Learning</p>
+  <p id="greeting">Hello! I'm Wayne, a Junior Developer.</p>
+  <button id="darkModeBtn">Toggle Dark Mode</button>
 </header>
  
-<!-- About Me -->
 <section id="about">
   <h2>About Me</h2>
-  <p>Hi! I'm Wayne, an aspiring Software Engineer from South Africa.  
-     I'm still learning and growing as a junior developer, but I am passionate about building web applications and solving real-world problems.  
-     I enjoy experimenting with Python, JavaScript, HTML, and CSS to bring ideas to life.</p>
+  <p>Hi! I'm Wayne, an aspiring junior developer still learning and growing. I enjoy building projects with Python, JavaScript, HTML, and CSS.</p>
 </section>
  
-<!-- Skills -->
 <section id="skills">
   <h2>Skills</h2>
   <div class="skills">
@@ -128,42 +75,26 @@
   </div>
 </section>
  
-<!-- Education / Course -->
-<section id="education">
-  <h2>Education & Courses</h2>
-  <div class="education-sheet">
-    <p><strong>Course:</strong> IT Programming</p>
-    <p><strong>Institution:</strong> Unity College</p>
-    <p><strong>Lecturer:</strong> Mr. Paul</p>
-    <p><strong>Year:</strong> 2025</p>
-  </div>
-</section>
- 
-<!-- Projects -->
 <section id="projects">
   <h2>Projects</h2>
   <div class="projects">
-    <!-- Project 1 -->
     <div class="project">
       <img src="project1-screenshot.png" alt="Student Management System">
       <h3>Student Management System</h3>
-      <p>A CRUD app to manage students. Users can add, edit, and delete records.</p>
+      <p>A CRUD app to manage students.</p>
       <p><strong>Built With:</strong> Python, SQLite, HTML/CSS</p>
-      <p><a href="https://github.com/Zannii34/student-management">GitHub Repo</a> | <a href="https://Zannii34.github.io/student-management">Live Demo</a></p>
+      <p><a href="https://github.com/Zannii34/student-management">GitHub Repo</a></p>
     </div>
- 
-    <!-- Project 2 -->
     <div class="project">
       <img src="project2-screenshot.png" alt="Portfolio Website">
       <h3>Portfolio Website</h3>
-      <p>My personal portfolio built to showcase projects, skills, and learning journey.</p>
+      <p>My personal portfolio built to showcase projects and skills.</p>
       <p><strong>Built With:</strong> HTML, CSS, JavaScript</p>
-      <p><a href="https://github.com/Zannii34/Zannii34.github.io">GitHub Repo</a> | <a href="https://Zannii34.github.io/">Live Demo</a></p>
+      <p><a href="https://github.com/Zannii34/Zannii34.github.io">GitHub Repo</a></p>
     </div>
   </div>
 </section>
  
-<!-- Contact -->
 <section id="contact">
   <h2>Contact & Social Links</h2>
   <div class="contact-links">
@@ -177,11 +108,18 @@
   &copy; 2026 Wayne Kamachetera
 </footer>
  
-<!-- JavaScript Example -->
 <script>
-  // Small interactive feature: welcome alert on page load
-  window.addEventListener('load', () => {
-    console.log("Welcome to Wayne Kamachetera's Portfolio!");
+  // Interactive greeting based on time
+  const greetingEl = document.getElementById('greeting');
+  const hour = new Date().getHours();
+  if(hour < 12) greetingEl.textContent = "Good morning! I'm Wayne, a Junior Developer.";
+  else if(hour < 18) greetingEl.textContent = "Good afternoon! I'm Wayne, a Junior Developer.";
+  else greetingEl.textContent = "Good evening! I'm Wayne, a Junior Developer.";
+ 
+  // Dark Mode toggle
+  const darkBtn = document.getElementById('darkModeBtn');
+  darkBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
   });
 </script>
  
