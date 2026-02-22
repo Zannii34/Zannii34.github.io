@@ -7,6 +7,28 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
+  <div id="chatbot">
+  <input id="chatInput" placeholder="Ask about Wayne..." />
+  <button onclick="sendMsg()">Send</button>
+  <p id="chatReply"></p>
+</div>
+
+<script>
+function sendMsg(){
+  const msg = document.getElementById("chatInput").value;
+
+  fetch("/chatbot", {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify({message: msg})
+  })
+  .then(res => res.json())
+  .then(data => {
+    document.getElementById("chatReply").innerText = data.reply;
+  });
+}
+</script>
+  
 <body>
 
 <header>
