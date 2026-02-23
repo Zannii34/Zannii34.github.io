@@ -12,23 +12,6 @@
   <button onclick="sendMsg()">Send</button>
   <p id="chatReply"></p>
 </div>
-
-<script>
-function sendMsg(){
-  const msg = document.getElementById("chatInput").value;
-
-  fetch("/chatbot", {
-    method: "POST",
-    headers: {"Content-Type": "application/json"},
-    body: JSON.stringify({message: msg})
-  })
-  .then(res => res.json())
-  .then(data => {
-    document.getElementById("chatReply").innerText = data.reply;
-  });
-}
-</script>
-  
 <body>
 
 <header>
