@@ -13,7 +13,7 @@ The website is hosted for free using **GitHub Pages** and is accessible on:
 ---
 
 ## 🔗 Live Website
-👉 https://Zannii34.github.io/my portfolio/
+👉 https://Zannii34.github.io/portfolio/
 
 ---
 
