@@ -204,21 +204,57 @@
 </footer>
 
 <script>
-  // Greeting changes based on time
-  const greetingEl = document.getElementById('greeting');
-  const hour = new Date().getHours();
-  if(hour < 12) greetingEl.textContent = "Good morning! I'm Wayne, a Junior Developer.";
-  else if(hour < 18) greetingEl.textContent = "Good afternoon! I'm Wayne, a Junior Developer.";
-  else greetingEl.textContent = "Good evening! I'm Wayne, a Junior Developer.";
+const chatInput = document.getElementById("chatInput");
+const chatBox = document.getElementById("chatBox");
 
-  // Dark Mode toggle
-  const darkBtn = document.getElementById('darkModeBtn');
-  darkBtn.addEventListener('click', () => {
-    document.body.classList.toggle('dark-mode');
-    darkBtn.textContent = document.body.classList.contains('dark-mode') ? "☀️ Light Mode" : "🌙 Dark Mode";
-  });
-    
+// Press Enter to send message
+chatInput.addEventListener("keypress", function(e){
+    if(e.key === "Enter"){
+        sendMsg();
+    }
+});
+
+function botReply(msg){
+
+    let reply = "I'm still learning 🙂";
+
+    msg = msg.toLowerCase();
+
+    if(msg.includes("who are you")){
+        reply = "Hi! I'm Wayne's portfolio assistant chatbot.";
+    }
+    else if(msg.includes("skills")){
+        reply = "Wayne knows Python, JavaScript, HTML, CSS, AI basics, and databases.";
+    }
+    else if(msg.includes("projects")){
+        reply = "Check the Projects section above to see Wayne's work!";
+    }
+    else if(msg.includes("contact")){
+        reply = "You can email Wayne or visit GitHub and LinkedIn links.";
+    }
+    else if(msg.includes("hello") || msg.includes("hi")){
+        reply = "Hello! How can I help you today?";
+    }
+
+    return reply;
+}
+
+function sendMsg(){
+
+    let msg = chatInput.value.trim();
+    if(msg === "") return;
+
+    chatBox.innerHTML += `<div class="userMsg">You: ${msg}</div>`;
+
+    setTimeout(()=>{
+        let reply = botReply(msg);
+        chatBox.innerHTML += `<div class="botMsg">Bot: ${reply}</div>`;
+        chatBox.scrollTop = chatBox.scrollHeight;
+    }, 500);
+
+    chatInput.value = "";
+}
 </script>
-
+    
 </body>
 </html>
