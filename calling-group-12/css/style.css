@@ -254,3 +254,34 @@ footer {
     .service-card img { max-width: 100%; height: 160px; }
     .service-card small { font-size: 14px; max-width: 90%; }
 }
+.main-header {
+    background: #1e1e1e;
+    color: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 26px;
+}
+
+.logo p {
+    margin: 5px 0 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 25px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.navbar a:hover {
+    color: #f39c12;
+}
