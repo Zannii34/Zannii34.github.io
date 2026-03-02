@@ -264,3 +264,8 @@ body.dark-mode header {
     background: linear-gradient(135deg,#3333aa,#0088cc);
 }
 
+body.dark-mode{
+    background-color:#1b1b1b !important;
+    color:white !important;
+}
+
