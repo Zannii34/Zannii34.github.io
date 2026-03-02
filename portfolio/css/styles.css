@@ -215,3 +215,52 @@ body.dark-mode #certifications .project p {
   color: #ddd;
 }
 
+/* Theme Toggle Floating Button */
+.theme-toggle-container {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    z-index: 999;
+}
+
+#themeToggle {
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    background: linear-gradient(135deg,#1e90ff,#00bfff);
+    color: white;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.25);
+    transition: transform 0.3s, background 0.4s;
+}
+
+#themeToggle:hover {
+    transform: scale(1.1);
+}
+
+/* Dark Theme */
+body.dark-mode {
+    background: #1b1b1b;
+    color: #f9f9f9;
+}
+
+/* Smooth Transition */
+body {
+    transition: background 0.5s ease, color 0.5s ease;
+}
+
+/* Cards Dark Mode */
+body.dark-mode .project,
+body.dark-mode .education-item,
+body.dark-mode .service-card {
+    background: #2a2a2a;
+    color: white;
+}
+
+/* Header Dark Mode */
+body.dark-mode header {
+    background: linear-gradient(135deg,#3333aa,#0088cc);
+}
+
