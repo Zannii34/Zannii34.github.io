@@ -5,7 +5,11 @@
     box-sizing:border-box;
     margin:0;
     padding:0;
-    font-family: 'Poppins', sans-serif;
+    font-family:'Poppins', sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 /* ================= BODY ================= */
@@ -25,6 +29,7 @@ body{
     justify-content:space-between;
     align-items:center;
     flex-wrap:wrap;
+    gap:20px;
 }
 
 /* Logo */
@@ -42,33 +47,32 @@ body{
 
 .navbar{
     display:flex;
-    gap:25px;
-    align-items:center;
+    gap:20px;
     flex-wrap:wrap;
 }
-
-/* Navigation Links */
 
 .navbar a{
     text-decoration:none;
     font-weight:bold;
-    font-size:18px;
+    font-size:17px;
     color:white;
     padding:10px 18px;
     border-radius:30px;
+
     background:linear-gradient(135deg,#1e90ff,#00bfff);
-    transition:0.3s;
+
+    transition:0.3s ease;
 }
 
 /* Hover Animation */
 
 .navbar a:hover{
     transform:scale(1.08);
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
+    box-shadow:0 6px 18px rgba(0,0,0,0.25);
     background:linear-gradient(135deg,#00bfff,#1e90ff);
 }
 
-/* Active Page Highlight */
+/* Active Page */
 
 .navbar a.active{
     background:linear-gradient(135deg,#ff7f50,#ff1493);
@@ -78,8 +82,8 @@ body{
 
 .hero{
     background:
-    linear-gradient(rgba(10,61,98,0.75),rgba(10,61,98,0.75)),
-    url("images/plumber-working.jpg") center/cover no-repeat;
+    linear-gradient(rgba(10,61,98,0.8),rgba(10,61,98,0.8)),
+    url("../images/plumber-working.jpg") center/cover no-repeat;
 
     color:white;
     text-align:center;
@@ -91,14 +95,13 @@ body{
 .section{
     background:white;
     margin:50px auto;
-    padding:70px 25px;
+    padding:70px 30px;
     max-width:1200px;
-    border-radius:20px;
+    border-radius:22px;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,0.08);
-}
 
-/* Section Title */
+    box-shadow:0 10px 35px rgba(0,0,0,0.08);
+}
 
 .section h2{
     font-size:32px;
@@ -118,16 +121,18 @@ body{
 
 .service-card{
     background:white;
-    padding:22px;
-    border-radius:18px;
-    box-shadow:0 8px 22px rgba(0,0,0,0.15);
+    padding:25px;
+    border-radius:20px;
+
+    box-shadow:0 8px 25px rgba(0,0,0,0.12);
+
     text-align:center;
-    transition:0.3s;
+    transition:0.35s ease;
 }
 
 .service-card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 14px 35px rgba(0,0,0,0.25);
+    transform:translateY(-8px);
+    box-shadow:0 16px 40px rgba(0,0,0,0.25);
 }
 
 /* Service Image */
@@ -166,9 +171,11 @@ body{
     position:fixed;
     bottom:25px;
     right:20px;
+
     display:flex;
     flex-direction:column;
     gap:12px;
+
     z-index:999;
 }
 
@@ -180,8 +187,10 @@ body{
     color:white;
     text-align:center;
     width:140px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.25);
-    transition:0.3s;
+
+    box-shadow:0 5px 18px rgba(0,0,0,0.25);
+
+    transition:0.3s ease;
 }
 
 .whatsapp{ background:#25D366; }
@@ -205,27 +214,31 @@ footer{
 
 @media (max-width:768px){
 
-    .main-header{
-        flex-direction:column;
-        text-align:center;
-        gap:15px;
-    }
+.main-header{
+    flex-direction:column;
+    text-align:center;
+}
 
-    .navbar{
-        justify-content:center;
-    }
+.navbar{
+    justify-content:center;
+}
 
-    .services-grid{
-        grid-template-columns:1fr;
-        padding:20px;
-    }
+.section{
+    margin:30px 15px;
+    padding:50px 20px;
+}
 
-    .service-card img{
-        height:160px;
-    }
+.services-grid{
+    grid-template-columns:1fr;
+}
 
-    .floating-contact{
-        right:10px;
-        bottom:20px;
-    }
+.service-card img{
+    height:160px;
+}
+
+.floating-contact{
+    right:10px;
+    bottom:20px;
+}
+
 }
