@@ -17,6 +17,7 @@ html{
 body{
     background:#f4f6f8;
     color:#333;
+    padding-bottom:100px; /* prevents floating buttons from blocking content */
 }
 
 /* ================= HEADER HERO ================= */
@@ -314,43 +315,39 @@ footer{
 
 @media (max-width:768px){
 
-.main-header{
-    flex-direction:column;
-    text-align:center;
+    .main-header{
+        flex-direction:column;
+        text-align:center;
+    }
+
+    .navbar{
+        justify-content:center;
+    }
+
+    .section{
+        margin:30px 15px;
+        padding:50px 20px;
+    }
+
+    .services-grid{
+        grid-template-columns:1fr;
+    }
+
+    .service-card img{
+        height:160px;
+    }
+
+    /* Smaller Floating Buttons On Mobile */
+
+    .float-btn{
+        width:100px;
+        padding:8px 12px;
+        font-size:13px;
+    }
+
+    .floating-contact{
+        bottom:15px;
+        right:10px;
+    }
+
 }
-
-.navbar{
-    justify-content:center;
-}
-
-.section{
-    margin:30px 15px;
-    padding:50px 20px;
-}
-
-.services-grid{
-    grid-template-columns:1fr;
-}
-
-.service-card img{
-    height:160px;
-}
-
-.floating-contact{
-    right:10px;
-    bottom:20px;
-}
-
-@media (max-width:768px){
-
-.float-btn{
-    width:110px;
-    padding:10px 14px;
-    font-size:14px;
-}
-
-.floating-contact{
-    bottom:20px;
-    right:10px;
-}
-
