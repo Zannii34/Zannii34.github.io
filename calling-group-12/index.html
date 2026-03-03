@@ -2,13 +2,15 @@
 <html lang="en">
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <meta charset="UTF-8">
-<title>Calling Group 12 | Plumbing, Electrical & Construction Services in Johannesburg</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="description" content="Calling Group 12 offers professional plumbing, electrical, ceiling installation and construction services in Johannesburg and surrounding areas. Reliable and affordable.">
+<title>Calling Group 12 | Plumbing, Electrical & Construction Services</title>
 
-<meta name="keywords" content="plumber Johannesburg, electrician Roodepoort, construction company Gauteng, ceiling installation South Africa">
+<meta name="description" content="Calling Group 12 provides professional plumbing, electrical and construction services in Johannesburg and Gauteng.">
+<meta name="keywords" content="plumber Johannesburg, electrician Roodepoort, construction company Gauteng">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
@@ -17,6 +19,7 @@
 
 <body>
 
+<!-- HEADER -->
 <header class="hero">
 
 <div class="logo-container">
@@ -45,6 +48,13 @@
 </div>
 
 </header>
+
+<!-- NAVIGATION -->
+<nav class="navbar" style="justify-content:center; padding:20px;">
+<a href="index.html">Home</a>
+<a href="services.html">Services</a>
+<a href="contact.html">Contact</a>
+</nav>
 
 <!-- ABOUT -->
 <section class="section">
@@ -86,7 +96,7 @@ Quality workmanship and customer satisfaction are our priority.
 <span data-img="images/plumbing.jpg">🚰 Plumbing</span>
 <span data-img="images/electrical.jpg">💡 Electrical</span>
 <span data-img="images/welding.jpg">🔥 Welding</span>
-<span data-img="images/painting.jpg">🎨 Painting</span>
+<span data-img="images/painting.webp">🎨 Painting</span>
 <span data-img="images/paving.jpg">🧱 Paving</span>
 <span data-img="images/rhino_lite.jpg">🏠 Rhino Lite</span>
 <span data-img="images/plastering.jpg">🧰 Plastering</span>
@@ -103,14 +113,13 @@ Quality workmanship and customer satisfaction are our priority.
 </div>
 
 <!-- CTA -->
-<section class="section cta">
+<section class="section">
 
 <h2>Need Professional Help?</h2>
 
 <div class="buttons">
 
 <a href="services.html" class="btn email">🛠 Services</a>
-
 <a href="contact.html" class="btn call">📍 Contact Us</a>
 
 </div>
@@ -132,6 +141,7 @@ Wayne Kamachetera
 
 <!-- Preview Script -->
 <script>
+
 const spans = document.querySelectorAll(".services span");
 const preview = document.getElementById("servicePreview");
 const img = document.getElementById("previewImg");
@@ -152,6 +162,7 @@ spans.forEach(span => {
     });
 
 });
+
 </script>
 
 </body>
