@@ -341,4 +341,16 @@ footer{
     bottom:20px;
 }
 
+@media (max-width:768px){
+
+.float-btn{
+    width:110px;
+    padding:10px 14px;
+    font-size:14px;
 }
+
+.floating-contact{
+    bottom:20px;
+    right:10px;
+}
+
