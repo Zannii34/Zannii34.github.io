@@ -335,7 +335,7 @@ footer {
 
 /* Services Link Highlight */
 .navbar a[href="services.html#services"]{
-    background:linear-gradient(135deg,#ff7f50,#ff1493);
+    background:linear-gradient(135deg,#1e90ff,#00bfff);
 }
 
 /* Hover Effect */
