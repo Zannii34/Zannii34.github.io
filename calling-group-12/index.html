@@ -1,4 +1,4 @@
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -21,7 +21,7 @@
 <header class="hero">
 
 <div class="logo-container">
-<img src="images/CALLING_GROUP_12_logo.png" class="logo" alt="CALLING GROUP 12 Logo">
+<img src="images/CALLING_GROUP_12_logo.png" class="logo" alt="Calling Group 12 Logo">
 </div>
 
 <h1>CALLING GROUP 12</h1>
@@ -98,6 +98,11 @@ Quality workmanship and customer satisfaction are our priority.
 
 </section>
 
+<!-- Preview Image Container -->
+<div id="servicePreview">
+<img id="previewImg" src="">
+</div>
+
 <!-- CTA -->
 <section class="section cta">
 
@@ -133,6 +138,7 @@ const preview = document.getElementById("servicePreview");
 const img = document.getElementById("previewImg");
 
 spans.forEach(span => {
+
     span.addEventListener("mouseenter", () => {
         if(preview){
             img.src = span.dataset.img;
@@ -145,6 +151,7 @@ spans.forEach(span => {
             preview.style.display = "none";
         }
     });
+
 });
 </script>
 
