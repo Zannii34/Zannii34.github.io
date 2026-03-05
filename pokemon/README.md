@@ -40,9 +40,7 @@ pokemon/
 
 If hosted using GitHub Pages, the project can be accessed via:
 
-```
-https://Zannii34/Zannii34.github.io/pokemon
-```
+https://Zannii34.github.io/pokemon/
 
 (Replace username with your GitHub username)
 
