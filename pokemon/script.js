@@ -288,7 +288,21 @@ searchInput.addEventListener('input', () => {
     }, APP_CONFIG.SEARCH_DELAY);
 
 });
+    
+    function showPokemonDetails(pokemon) {
+    alert(
+        pokemon.name +
+        "\nType: " + pokemon.type +
+        "\nPower: " + pokemon.power +
+        "\nOrigin: " + pokemon.origin +
+        "\nStats: " + pokemon.stats +
+        "\nDescription: " + pokemon.description
+    );
+}
 
+    card.addEventListener("click", () => {
+    showPokemonDetails(pokemonData);
+});
 /* -----------------------------
    Start App
 ----------------------------- */
