@@ -316,3 +316,33 @@ document.querySelectorAll(".pokemon-card").forEach(card => {
     card.classList.toggle("active");
   });
 });
+
+async function loadPokemon(){
+
+    const response = await fetch("https://pokeapi.co/api/v2/pokemon?limit=150");
+    const data = await response.json();
+
+    const container = document.querySelector(".pokemon-container");
+    container.innerHTML = "";
+
+    data.results.forEach(async pokemon=>{
+
+        const pokeData = await fetch(pokemon.url);
+        const details = await pokeData.json();
+
+        container.innerHTML += `
+        <div class="pokemon-card">
+            <img src="${details.sprites.front_default}">
+            <h3>${pokemon.name}</h3>
+            <div class="card-info">
+                <p>Power: ${details.base_experience}</p>
+                <p>Height: ${details.height}</p>
+            </div>
+        </div>
+        `;
+    });
+}
+
+loadPokemon();
+
+container.innerHTML = "Loading Pokémon...";
