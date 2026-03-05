@@ -1,91 +1,21 @@
 document.addEventListener("DOMContentLoaded", async () => {
 
-/* -----------------------------
-   DOM ELEMENTS
------------------------------ */
-
 const pokemonContainer = document.getElementById("pokemon-container");
-const sortSelect = document.getElementById("sort");
-const searchInput = document.getElementById("search");
 const pokemonCount = document.getElementById("pokemon-count");
-const typeFilter = document.getElementById("type-filter");
 
-/* -----------------------------
-   APP CONFIG
------------------------------ */
-
-const APP_CONFIG = {
-    LIMIT: 151,
-    ITEMS_PER_PAGE: 20,
-    SEARCH_DELAY: 300
-};
+if (!pokemonContainer) return;
 
 let allPokemon = [];
-let searchTimeout;
-
-/* -----------------------------
-   Loader
------------------------------ */
-
-function showLoader(){
-    pokemonContainer.innerHTML =
-        "<p style='text-align:center'>Loading Pokemon...</p>";
-}
-
-/* -----------------------------
-   Display Pokemon Cards
------------------------------ */
-
-function displayPokemon(list){
-
-    pokemonContainer.innerHTML = "";
-
-    list.forEach(pokemon => {
-
-        const card = document.createElement("div");
-        card.className = "pokemon-card";
-
-        const types = pokemon.types.map(type =>
-            `<span class="type-badge type-${type}">
-                ${type}
-            </span>`
-        ).join("");
-
-        card.innerHTML = `
-            <div class="pokemon-image">
-                <img src="${pokemon.image}" loading="lazy">
-            </div>
-
-            <div class="pokemon-details">
-                <div class="pokemon-name">
-                    ${pokemon.formattedName}
-                </div>
-
-                <div class="pokemon-types">
-                    ${types}
-                </div>
-            </div>
-        `;
-
-        pokemonContainer.appendChild(card);
-
-    });
-
-    pokemonCount.textContent = list.length;
-}
-
-/* -----------------------------
-   Fetch Pokemon Data
------------------------------ */
 
 async function fetchPokemon(){
 
-    showLoader();
+    pokemonContainer.innerHTML =
+        "<p style='text-align:center'>Loading Pokemon...</p>";
 
     try {
 
         const response = await fetch(
-            `https://pokeapi.co/api/v2/pokemon?limit=${APP_CONFIG.LIMIT}`
+            "https://pokeapi.co/api/v2/pokemon?limit=151"
         );
 
         const data = await response.json();
@@ -126,90 +56,46 @@ async function fetchPokemon(){
     }
 }
 
-/* -----------------------------
-   Filtering + Sorting
------------------------------ */
+function displayPokemon(list){
 
-function filterPokemon(list, searchTerm, selectedType){
+    pokemonContainer.innerHTML = "";
 
-    let filtered = list;
+    list.forEach(pokemon => {
 
-    if(searchTerm){
+        const card = document.createElement("div");
+        card.className = "pokemon-card";
 
-        const term = searchTerm.toLowerCase();
+        const types = pokemon.types.map(type =>
+            `<span class="type-badge type-${type}">
+                ${type}
+            </span>`
+        ).join("");
 
-        filtered = filtered.filter(p =>
-            p.name.includes(term) ||
-            p.id.toString().includes(term)
-        );
-    }
+        card.innerHTML = `
+            <div class="pokemon-image">
+                <img src="${pokemon.image}" loading="lazy">
+            </div>
 
-    if(selectedType){
+            <div class="pokemon-details">
+                <div class="pokemon-name">
+                    ${pokemon.formattedName}
+                </div>
 
-        filtered = filtered.filter(p =>
-            p.types.includes(selectedType)
-        );
-    }
+                <div class="pokemon-types">
+                    ${types}
+                </div>
+            </div>
+        `;
 
-    return filtered;
-}
-
-function sortPokemon(list, sortOption){
-
-    const [key, direction] = sortOption.split("-");
-
-    return [...list].sort((a,b)=>{
-
-        let compare = 0;
-
-        if(key==="id") compare = a.id - b.id;
-        if(key==="name") compare = a.name.localeCompare(b.name);
-
-        return direction==="desc" ? -compare : compare;
+        pokemonContainer.appendChild(card);
 
     });
+
+    pokemonCount.textContent = list.length;
+
 }
 
-/* -----------------------------
-   Controls Handler
------------------------------ */
-
-function handleControls(){
-
-    const sortOption = sortSelect.value;
-    const searchTerm = searchInput.value.trim();
-    const selectedType = typeFilter.value;
-
-    let filtered = filterPokemon(
-        allPokemon,
-        searchTerm,
-        selectedType
-    );
-
-    let sorted = sortPokemon(filtered, sortOption);
-
-    displayPokemon(sorted);
-}
-
-/* -----------------------------
-   Events
------------------------------ */
-
-sortSelect?.addEventListener("change", handleControls);
-typeFilter?.addEventListener("change", handleControls);
-
-searchInput?.addEventListener("input",()=>{
-
-    clearTimeout(searchTimeout);
-
-    searchTimeout = setTimeout(handleControls,300);
-
-});
-
-/* -----------------------------
-   Start App
------------------------------ */
-
+/* Start App */
 fetchPokemon();
 
 });
