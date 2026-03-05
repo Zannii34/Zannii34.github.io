@@ -343,6 +343,81 @@ async function loadPokemon(){
     });
 }
 
+async function fetchPokemon() {
+
+    showSkeletonLoader();
+
+    try {
+
+        /* ⭐ Change this number to add more Pokemon */
+        const POKEMON_LIMIT = 251;
+
+        const response = await fetch(
+            `https://pokeapi.co/api/v2/pokemon?limit=${POKEMON_LIMIT}`
+        );
+
+        const data = await response.json();
+
+        const pokemonDetails = await Promise.all(
+            data.results.map(async (pokemon, index) => {
+
+                const pokemonResponse = await fetch(pokemon.url);
+                const pokemonData = await pokemonResponse.json();
+
+                const speciesResponse =
+                    await fetch(pokemonData.species.url);
+
+                const speciesData = await speciesResponse.json();
+
+                return {
+                    id: index + 1,
+                    name: pokemonData.name,
+                    formattedName:
+                        pokemonData.name.charAt(0).toUpperCase() +
+                        pokemonData.name.slice(1),
+
+                    image:
+                        pokemonData.sprites.other?.['dream_world']?.front_default ||
+                        pokemonData.sprites.other?.['official-artwork']?.front_default ||
+                        pokemonData.sprites.front_default,
+
+                    types: pokemonData.types.map(t => t.type.name),
+
+                    height: pokemonData.height / 10,
+                    weight: pokemonData.weight / 10,
+                    baseExperience: pokemonData.base_experience,
+
+                    moves: pokemonData.moves.length,
+
+                    habitat: speciesData.habitat?.name || 'unknown',
+
+                    flavorText:
+                        speciesData.flavor_text_entries.find(
+                            entry => entry.language.name === 'en'
+                        )?.flavor_text || 'No description available',
+
+                    cryUrl:
+                        `https://play.pokemonshowdown.com/audio/cries/${pokemonData.name}.mp3`
+                };
+
+            })
+        );
+
+        allPokemon = pokemonDetails;
+
+        displayPokemon(allPokemon);
+
+        pokemonCount.textContent = allPokemon.length;
+
+    } catch (error) {
+
+        pokemonContainer.innerHTML =
+            `<div class="error">Error loading Pokemon: ${error.message}</div>`;
+
+        console.error(error);
+    }
+}
+
 loadPokemon();
 
 container.innerHTML = "Loading Pokémon...";
