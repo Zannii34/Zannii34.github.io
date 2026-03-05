@@ -310,3 +310,9 @@ searchInput.addEventListener('input', () => {
 fetchPokemon();
 
 });
+
+document.querySelectorAll(".pokemon-card").forEach(card => {
+  card.addEventListener("click", () => {
+    card.classList.toggle("active");
+  });
+});
