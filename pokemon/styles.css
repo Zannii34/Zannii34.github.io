@@ -145,6 +145,18 @@ input:focus{
     transform:scale(0.97);
 }
 
+.pokemon-container{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.pokemon-card img{
+  width:100%;
+  height:auto;
+}
+
 /* Flip System */
 
 .card-inner{
@@ -360,3 +372,14 @@ footer a{
     opacity: 1;
 }
 
+@media (max-width:768px){
+
+  .pokemon-container{
+    grid-template-columns:1fr 1fr;
+  }
+
+  h1{
+    font-size:24px;
+  }
+
+}
