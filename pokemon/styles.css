@@ -383,3 +383,11 @@ footer a{
   }
 
 }
+
+.card-info{
+  display:none;
+}
+
+.pokemon-card.active .card-info{
+  display:block;
+}
