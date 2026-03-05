@@ -341,3 +341,22 @@ footer a{
         height:300px;
     }
 }
+
+.pokemon-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pokemon-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.card-info {
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.pokemon-card:hover .card-info {
+    opacity: 1;
+}
+
