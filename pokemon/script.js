@@ -389,3 +389,45 @@ if(localStorage.getItem("tutorialSeen")){
 }
 
 });
+
+let pokemonTeam = JSON.parse(localStorage.getItem("pokemonTeam")) || [];
+const TEAM_LIMIT = 6;
+
+const teamSlots = document.getElementById("team-slots");
+
+function renderTeam(){
+    teamSlots.innerHTML = "";
+
+    for(let i=0;i<TEAM_LIMIT;i++){
+
+        const slot = document.createElement("div");
+        slot.className="team-slot";
+
+        if(pokemonTeam[i]){
+            slot.innerHTML = `<img src="${pokemonTeam[i].image}">`;
+
+            slot.addEventListener("click",()=>{
+                pokemonTeam.splice(i,1);
+                localStorage.setItem("pokemonTeam",JSON.stringify(pokemonTeam));
+                renderTeam();
+            });
+        }
+
+        teamSlots.appendChild(slot);
+    }
+}
+
+if(e.target.classList.contains("card-inner")){
+    if(pokemonTeam.length >= TEAM_LIMIT){
+        alert("Team is full (Max 6 Pokémon)");
+        return;
+    }
+
+    if(pokemon && !pokemonTeam.find(p=>p.name===pokemon.name)){
+        pokemonTeam.push(pokemon);
+        localStorage.setItem("pokemonTeam",JSON.stringify(pokemonTeam));
+        renderTeam();
+    }
+}
+
+renderTeam();
