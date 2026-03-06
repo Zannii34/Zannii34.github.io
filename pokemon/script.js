@@ -362,3 +362,30 @@ document.getElementById("show-favorites").addEventListener("click",()=>{
 fetchPokemon();
 
 });
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const tutorial = document.getElementById("swipe-tutorial");
+const closeBtn = document.getElementById("close-tutorial");
+
+/* Show tutorial only on mobile */
+if(window.innerWidth <= 768){
+    setTimeout(()=>{
+        tutorial.style.display = "flex";
+    },800);
+}else{
+    tutorial.style.display = "none";
+}
+
+/* Close tutorial */
+closeBtn.addEventListener("click",()=>{
+    tutorial.style.display = "none";
+    localStorage.setItem("tutorialSeen","true");
+});
+
+/* Auto hide if user already saw tutorial */
+if(localStorage.getItem("tutorialSeen")){
+    tutorial.style.display = "none";
+}
+
+});
