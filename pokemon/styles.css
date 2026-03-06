@@ -37,16 +37,19 @@ body.light {
 ============================= */
 header{
     text-align:center;
+
     padding:22px;
+
     margin-bottom:35px;
-    background:rgba(26,26,46,0.95);
+
+    background:rgba(255,255,255,0.85);
+
     border-radius:14px;
-    box-shadow:0 5px 25px rgba(0,0,0,0.4);
-    backdrop-filter:blur(8px);
-    display:flex;
-    justify-content:center;
-    gap:15px;
-    flex-wrap:wrap;
+
+    box-shadow:
+        0 5px 25px rgba(0,0,0,0.08);
+
+    backdrop-filter:blur(10px);
 }
 
 header h1{
@@ -118,19 +121,31 @@ select:focus, input:focus{
 ============================= */
 .pokemon-card{
     height:350px;
+
     cursor:pointer;
-    background:rgba(26,26,46,0.85);
-    border-radius:12px;
+
+    background:rgba(255,255,255,0.75);
+
+    backdrop-filter: blur(12px);
+
+    border-radius:14px;
+
     overflow:hidden;
-    border:1px solid rgba(255,255,255,0.1);
-    transition:0.25s ease, transform 0.5s;
-    perspective:1000px;
-    position:relative;
+
+    border:1px solid rgba(0,0,0,0.08);
+
+    transition:0.3s ease;
+
+    box-shadow:
+        0 4px 20px rgba(0,0,0,0.05);
 }
 
 .pokemon-card:hover{
-    transform:translateY(-7px) scale(1.01);
-    box-shadow:0 12px 35px rgba(0,0,0,0.5);
+    transform:translateY(-6px) scale(1.02);
+
+    box-shadow:
+        0 8px 30px rgba(0,0,0,0.12);
+}
 }
 
 .pokemon-card:active{
@@ -196,7 +211,11 @@ select:focus, input:focus{
 /* Details */
 .pokemon-details{
     padding:15px;
-    background:rgba(22,33,62,0.8);
+
+    background:rgba(255,255,255,0.85);
+
+    color:#222;
+}
 }
 
 .pokemon-id{
@@ -475,3 +494,8 @@ footer a{
 .team-slot:hover{
     transform:scale(1.1);
 }
+
+
+
+
+
