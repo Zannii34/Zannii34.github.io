@@ -440,3 +440,30 @@ if(e.target.classList.contains("card-inner")){
 }
 
 renderTeam();
+
+document.addEventListener("DOMContentLoaded",()=>{
+
+const tutorial = document.getElementById("swipe-tutorial");
+const closeBtn = document.getElementById("close-tutorial");
+
+/* Show tutorial only if user has not closed it */
+
+if(localStorage.getItem("tutorialSeen")){
+    tutorial.style.display="none";
+}else{
+    tutorial.style.display="flex";
+}
+
+/* Close tutorial when button is clicked */
+
+closeBtn?.addEventListener("click",()=>{
+    tutorial.style.display="none";
+    localStorage.setItem("tutorialSeen","true");
+});
+
+});
+
+const tutorial = document.getElementById("swipe-tutorial");
+if(tutorial){
+    tutorial.style.display="flex";
+}
