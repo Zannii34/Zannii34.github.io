@@ -495,7 +495,21 @@ footer a{
     transform:scale(1.1);
 }
 
+.skeleton{
+    background: linear-gradient(90deg,#eee #ddd #eee);
+    background-size:200% 100%;
+    animation:skeletonShimmer 1.5s infinite;
+    border-radius:12px;
+}
+@keyframes skeletonShimmer{
+    0%{background-position:-200% 0;}
+    100%{background-position:200% 0;}
+}
 
-
-
+mark{
+    background:#fffa65;
+    color:#222;
+    border-radius:3px;
+    padding:0 3px;
+}
 
