@@ -513,3 +513,6 @@ mark{
     padding:0 3px;
 }
 
+.swipe-tutorial{
+transition: opacity 0.4s ease;
+}
