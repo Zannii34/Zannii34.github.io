@@ -161,6 +161,15 @@ function handleControlsChange(){
     pokemonCount.textContent=filtered.length;
 }
 
+    const searchTerm = searchInput.value.trim().toLowerCase();
+paginated.forEach(pokemon=>{
+    const nameDiv = card.querySelector('.pokemon-name');
+    if(searchTerm){
+        const regex = new RegExp(`(${searchTerm})`,'gi');
+        nameDiv.innerHTML = pokemon.formattedName.replace(regex, '<mark>$1</mark>');
+    }
+});
+
 /* ===============================
    Fetch Pokémon Data (1000+)
 ================================= */
