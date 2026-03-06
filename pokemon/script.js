@@ -463,7 +463,45 @@ closeBtn?.addEventListener("click",()=>{
 
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+
 const tutorial = document.getElementById("swipe-tutorial");
-if(tutorial){
-    tutorial.style.display="flex";
+const closeBtn = document.getElementById("close-tutorial");
+
+if(!tutorial || !closeBtn) return;
+
+/* Show tutorial only if user hasn't closed it */
+if(localStorage.getItem("tutorialSeen")){
+    tutorial.style.display = "none";
+}else{
+    tutorial.style.display = "flex";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+const tutorial = document.getElementById("swipe-tutorial");
+const closeBtn = document.getElementById("close-tutorial");
+
+if(!tutorial || !closeBtn) return;
+
+/* Show tutorial only if user hasn't closed it */
+if(localStorage.getItem("tutorialSeen")){
+    tutorial.style.display = "none";
+}else{
+    tutorial.style.display = "flex";
+}
+
+/* When button is clicked → fade out then remove */
+closeBtn.addEventListener("click", () => {
+
+    tutorial.style.opacity = "0";
+
+    setTimeout(() => {
+        tutorial.style.display = "none";
+    }, 400);
+
+    localStorage.setItem("tutorialSeen", "true");
+
+});
+
+});
