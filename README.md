@@ -14,6 +14,7 @@ The website is hosted for free using **GitHub Pages** and is accessible on:
 
 ## 🔗 Live Website
 🌐 Portfolio Demo: Open the deployed portfolio website
+🌐 Live Demo: https://zannii34.github.io/
 ---
 
 ## 🛠️ Technologies Used
