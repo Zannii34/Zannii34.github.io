@@ -1,0 +1,36 @@
+document.addEventListener("DOMContentLoaded", () => {
+  const themeButton = document.getElementById("themeToggle");
+  const menuButton = document.getElementById("menuToggle");
+  const nav = document.getElementById("mainNav");
+
+  const savedTheme = localStorage.getItem("wingtech-theme");
+  if (savedTheme === "light") {
+    document.body.classList.add("light-mode");
+    if (themeButton) themeButton.textContent = "☾";
+  }
+
+  if (themeButton) {
+    themeButton.addEventListener("click", () => {
+      document.body.classList.toggle("light-mode");
+      const isLight = document.body.classList.contains("light-mode");
+      localStorage.setItem("wingtech-theme", isLight ? "light" : "dark");
+      themeButton.textContent = isLight ? "☾" : "☀";
+    });
+  }
+
+  if (menuButton && nav) {
+    menuButton.addEventListener("click", () => {
+      const open = nav.classList.toggle("open");
+      menuButton.setAttribute("aria-expanded", String(open));
+      menuButton.textContent = open ? "✕" : "☰";
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuButton.setAttribute("aria-expanded", "false");
+        menuButton.textContent = "☰";
+      });
+    });
+  }
+});
