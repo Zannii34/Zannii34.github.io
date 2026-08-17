@@ -19,3 +19,5 @@ This folder is ready for GitHub Pages. Upload the contents to the root of `Zanni
 - MK Construction imagery is illustrative and loaded from Wikimedia Commons URLs.
 - The Weather and Pokémon demos require an internet connection for their public APIs.
 - The Admin System demo is static because GitHub Pages cannot run Python/Flask server code.
+
+Deployment refresh: 17 August 2026
