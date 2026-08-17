@@ -1,32 +1,29 @@
-Wayne Kamachetera Portfolio V4 - Validation Report
+WAYNE KAMACHETERA PORTFOLIO - V6 QA REPORT
 Generated: 17 August 2026
 
-UPGRADES INCLUDED
-- 7 detailed project case-study pages
-- Live Demo + Case Study + View Code actions on featured projects
-- Project status badges: live demo, backend showcase, in development
-- Real rendered project-preview images generated from the included demo pages
-- Backend/full-stack evidence for Flask admin and Django task workflows
-- Certificates/coursework section without fabricating certificate files
-- Current projects section for VoraOS/Luna and the private MazeTech Hub website/admin system, clearly marked in development
-- Experience timeline including technical project work and communication experience
-- Correct contact email: wayne.kamachetera@gmail.com
-- Search/social metadata, canonical URL, social preview image, robots.txt and sitemap.xml
-- Recruiter-focused contact section
-- One-page downloadable PDF CV plus online CV page
-- Custom-domain readiness instructions in README (no CNAME added, so current GitHub Pages URL remains safe)
-- LinkedIn integration point reserved but no URL added because no verified LinkedIn profile URL was supplied
+IMPLEMENTED
+- Removed the project-card overlay that could visually block project previews.
+- Replaced preview overlays with actual bundled project screenshot images.
+- Added Featured Projects strip for MazeTech Hub, MK Construction, and Business Admin & Quote System.
+- Added project filters: All, Full Stack, Backend, Frontend, API, AI / Algorithms.
+- Added concise technical proof points to each project card.
+- Added a safe MazeTech Hub public showcase with no credentials, customer data, private routes, or sensitive security configuration.
+- Added GitHub profile access and one-click email copy.
+- Added custom 404 page.
+- Added external API retry/error states to Pokemon and Weather demos.
+- Added accessibility improvements: labels, focus-visible states, aria-live usage, reduced-motion support, responsive controls.
+- Updated CV HTML and PDF; removed telephone interviewing / market research wording.
+- Added MazeTech Hub to selected CV projects.
+- Updated README and sitemap.
 
-VALIDATION
-PASS - local HTML resource/link targets checked
-PASS - JavaScript syntax checked with Node.js
-PASS - old email address removed
-PASS - inaccurate 'Higher Certificate in IT Programming' award label removed
-PASS - CV PDF generated and visually rendered to one A4 page
-PASS - case-study screenshots and social preview assets present
-PASS - index.html remains at repository root for GitHub Pages
+INTENTIONALLY NOT FABRICATED
+- Certificate download links: originals were not supplied.
+- LinkedIn profile link: verified profile URL was not supplied.
+- Custom domain: no purchased/configured domain was supplied.
 
-IMPORTANT
-Certificate scans/download buttons are not included because original certificate files were not supplied.
-LinkedIn is not linked because a verified profile URL was not supplied.
-A custom domain is not activated because no purchased domain/DNS details were supplied.
+QA
+- HTML files checked: 18
+- Missing local links/resources: 0
+- JavaScript syntax: PASS
+- Local HTTP checks: homepage, CV, 404 and all 8 project/showcase routes returned HTTP 200.
+- CV PDF: rendered successfully as one A4 page and visually inspected.
