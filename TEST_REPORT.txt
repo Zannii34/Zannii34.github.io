@@ -1,0 +1,20 @@
+Portfolio V3 test summary
+=========================
+
+Static structure checks completed:
+- Root index.html present
+- cv.html present
+- CSS and JavaScript paths resolved
+- All seven project demo index pages present
+- All local href/src targets checked: 0 missing
+- Duplicate HTML IDs checked: 0 found
+- JavaScript syntax checked with Node.js: all project and portfolio JS files passed
+- Local HTTP test: homepage, CV and all seven demo routes returned HTTP 200
+
+External runtime dependencies:
+- Pokémon Explorer requires internet access to reach PokéAPI.
+- Weather Dashboard requires internet access to reach Open-Meteo; device geolocation requires browser permission and HTTPS/localhost.
+- Google Fonts require internet access; system fonts provide fallback rendering.
+
+Backend representation:
+- GitHub Pages cannot execute Python/Flask/Django server code. Admin and Django projects therefore include interactive static showcases designed to demonstrate the workflows while keeping the portfolio deployable as a static site.
