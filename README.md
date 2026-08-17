@@ -1,32 +1,21 @@
-# Zannii34.github.io
-# Wayne Kamachetera – Portfolio Website 🌐
+# Wayne Kamachetera — Developer Portfolio
 
-This is my professional portfolio website built using **HTML5 and CSS3**.  
-It showcases my skills, projects, and contact information in a clean, secure, and responsive design.
+A personal portfolio prepared for junior software development, web development, IT support and internship applications.
 
-The website is hosted for free using **GitHub Pages** and is accessible on:
-- Desktop
-- Laptop
-- Tablet
-- Mobile devices (Android & iOS)
+## Included live demos
+- MK Construction & Projects — redesigned business website demo
+- Pokémon Explorer & Team Builder — PokéAPI browser application
+- Weather Dashboard — Open-Meteo API application
+- To-Do Application — localStorage productivity app
+- Business Admin & Quote System — interactive static showcase of a Flask/SQLAlchemy-style admin system
+- Tic-Tac-Toe Minimax AI — browser adaptation of an AI/algorithm project
 
----
+## Deployment
+This folder is ready for GitHub Pages. Upload the contents to the root of `Zannii34.github.io` and publish the `main` branch from `/ (root)`.
 
-## 🔗 Live Website
-🌐 Portfolio Demo: Open the deployed portfolio website
-🌐 Live Demo: https://zannii34.github.io/
----
-
-## 🛠️ Technologies Used
-- HTML5
-- CSS3
-- Java script
-
----
-
-## Features
-- Responsive Portfolio Design
-- Dark/Light Theme Toggle
-- Projects Showcase
-- Certifications Section
-- Contact Links
+## Notes
+- Zanime and Wonder Kids Academy were intentionally removed.
+- The Next.js starter boilerplate was not included as a featured project because it is a starter template rather than a completed project.
+- MK Construction imagery is illustrative and loaded from Wikimedia Commons URLs.
+- The Weather and Pokémon demos require an internet connection for their public APIs.
+- The Admin System demo is static because GitHub Pages cannot run Python/Flask server code.
