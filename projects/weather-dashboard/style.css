@@ -3,3 +3,23 @@
 .search-tools{display:flex;gap:8px;align-items:center}.search-tools form{flex:1}.search-tools>button{border:1px solid #ffffff55;background:#ffffff18;color:#fff;border-radius:9px;padding:11px 13px;font-weight:700;cursor:pointer}@media(max-width:650px){.search-tools{width:100%;flex-direction:column;align-items:stretch}}
 
 .error-card{border:1px solid #b85b5b;background:#2a1118;padding:20px;border-radius:14px}.error-card p{opacity:.8}.error-card button,#status button{margin-left:8px;padding:7px 10px;border-radius:8px;border:1px solid currentColor;background:transparent;color:inherit;cursor:pointer}
+
+
+/* V8 responsive safety patch */
+html{max-width:100%;overflow-x:hidden;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{max-width:100%;overflow-x:hidden}
+img,svg,video,canvas,iframe{max-width:100%;height:auto}
+*,*:before,*:after{min-width:0}
+button,input,select,textarea{max-width:100%;font:inherit}
+table{max-width:100%}
+pre,code{max-width:100%;white-space:pre-wrap;overflow-wrap:anywhere}
+@media(max-width:768px){
+  body{font-size:clamp(14px,3.7vw,16px)}
+  h1{font-size:clamp(1.8rem,8vw,2.7rem)}
+  h2{font-size:clamp(1.45rem,6vw,2.15rem)}
+  h3{font-size:clamp(1.05rem,4.8vw,1.45rem)}
+  button,a[role="button"],input,select{min-height:44px}
+}
+@media(max-width:480px){
+  body{overflow-wrap:anywhere}
+}

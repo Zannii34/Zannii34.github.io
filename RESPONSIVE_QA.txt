@@ -1,0 +1,13 @@
+V8 RESPONSIVE QA
+Target viewports: 320px, 390px, 480px, 640px, 760px, 820px, 1050px, 1180px, large desktop.
+Fluid page width: enabled.
+Mobile card stacking: enabled.
+Horizontal filter scrolling on small screens: enabled.
+Images/media max-width containment: enabled.
+Touch targets: improved.
+
+Missing local targets: 0
+- None
+
+JavaScript syntax errors: 0
+- None
