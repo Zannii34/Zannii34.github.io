@@ -1,0 +1,7 @@
+PORTFOLIO SECURITY / PUBLISHING CHECK
+
+Potential secret-pattern findings: 0
+- No obvious API keys, private keys, password assignments or token assignments detected in publishable text/code files.
+- MazeTech Hub remains a public showcase only; protected administration source is not included.
+- No .env file is included in the package.
+- Review any future project before adding source code publicly.

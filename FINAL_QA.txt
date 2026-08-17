@@ -1,0 +1,10 @@
+FINAL V7 QA
+
+Missing local targets: 0
+- None
+
+JavaScript syntax errors: 0
+- None
+
+Security scan: see SECURITY_CHECK.txt
+CV PDF: rendered and visually checked as one A4 page.
