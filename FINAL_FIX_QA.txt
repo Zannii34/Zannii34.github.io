@@ -1,0 +1,13 @@
+FINAL FIX QA
+
+Old email occurrences: 0
+- None
+
+Incorrect qualification wording occurrences: 0
+- None
+
+Missing local targets: 0
+- None
+
+JavaScript syntax errors: 0
+- None
