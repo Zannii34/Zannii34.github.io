@@ -1,45 +1,25 @@
-# Wayne Kamachetera — Developer Portfolio
+# Wayne Kamachetera - Developer Portfolio
 
-Personal developer portfolio for junior software development, full-stack web development and IT support applications.
+Personal portfolio for software development, full-stack web and IT support opportunities.
 
-## Main sections
-
-- About / professional profile
-- Front-end, back-end, database, API, deployment, IT support and AI skills
-- What I Build capability overview
-- Seven featured interactive project demos
-- Additional AI / algorithms / Django project highlights
-- Technical experience
-- Education and CS50 coursework
-- Contact information
-- Printable CV (`cv.html`)
+## Highlights
+- Recruiter-focused personal portfolio
+- Working browser demos and project case studies
+- Front-end, backend, database, API and AI work
+- Downloadable PDF CV
+- Responsive design, accessibility focus and social-sharing metadata
 
 ## Featured demos
+- MK Construction & Projects
+- Pokémon Explorer & Team Builder
+- Weather Dashboard
+- To-Do Application
+- Business Admin & Quote System showcase
+- Django Task Manager showcase
+- Tic-Tac-Toe Minimax AI
 
-1. MK Construction & Projects — responsive business website demo
-2. Pokémon Explorer & Team Builder — PokéAPI + local storage
-3. Weather Dashboard — Open-Meteo + optional browser geolocation
-4. To-Do Application — task CRUD, filters, priorities and due dates
-5. Business Admin & Quote System — static interactive Flask/backend showcase
-6. Django Task Manager — static interactive showcase adapted from Django CRUD work
-7. Tic-Tac-Toe Minimax AI — playable adversarial-search demo
+## Custom domain later
+The site works at `https://zannii34.github.io/`. If a custom domain is purchased later, configure it in GitHub Pages and add the matching `CNAME` file only after DNS is ready. Do not add a placeholder CNAME because that would break the current site.
 
-## Run locally
-
-From this folder:
-
-```powershell
-python -m http.server 8000
-```
-
-Then open `http://localhost:8000/`.
-
-## GitHub Pages
-
-The project is designed to deploy from the repository root. Keep `index.html`, `css/`, `js/`, `assets/` and `projects/` at the top level of the `main` branch.
-
-## Notes
-
-- GitHub Pages is static hosting, so Python/Django/Flask server code cannot run directly there. Backend projects therefore use interactive browser showcases while accurately describing the backend architecture represented.
-- The weather and Pokémon demos require internet access for their public APIs.
-- MK Construction demo image licensing/attribution is documented in `projects/mk-construction/IMAGE_CREDITS.txt`.
+## LinkedIn
+A LinkedIn button should only be added after the correct profile URL is confirmed.

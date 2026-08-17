@@ -1,20 +1,32 @@
-Portfolio V3 test summary
-=========================
+Wayne Kamachetera Portfolio V4 - Validation Report
+Generated: 17 August 2026
 
-Static structure checks completed:
-- Root index.html present
-- cv.html present
-- CSS and JavaScript paths resolved
-- All seven project demo index pages present
-- All local href/src targets checked: 0 missing
-- Duplicate HTML IDs checked: 0 found
-- JavaScript syntax checked with Node.js: all project and portfolio JS files passed
-- Local HTTP test: homepage, CV and all seven demo routes returned HTTP 200
+UPGRADES INCLUDED
+- 7 detailed project case-study pages
+- Live Demo + Case Study + View Code actions on featured projects
+- Project status badges: live demo, backend showcase, in development
+- Real rendered project-preview images generated from the included demo pages
+- Backend/full-stack evidence for Flask admin and Django task workflows
+- Certificates/coursework section without fabricating certificate files
+- Current projects section for VoraOS/Luna and Distance Nation, clearly marked in development
+- Experience timeline including technical project work and communication experience
+- Correct contact email: wayne.kamachetera@gmail.com
+- Search/social metadata, canonical URL, social preview image, robots.txt and sitemap.xml
+- Recruiter-focused contact section
+- One-page downloadable PDF CV plus online CV page
+- Custom-domain readiness instructions in README (no CNAME added, so current GitHub Pages URL remains safe)
+- LinkedIn integration point reserved but no URL added because no verified LinkedIn profile URL was supplied
 
-External runtime dependencies:
-- Pokémon Explorer requires internet access to reach PokéAPI.
-- Weather Dashboard requires internet access to reach Open-Meteo; device geolocation requires browser permission and HTTPS/localhost.
-- Google Fonts require internet access; system fonts provide fallback rendering.
+VALIDATION
+PASS - local HTML resource/link targets checked
+PASS - JavaScript syntax checked with Node.js
+PASS - old email address removed
+PASS - inaccurate 'Higher Certificate in IT Programming' award label removed
+PASS - CV PDF generated and visually rendered to one A4 page
+PASS - case-study screenshots and social preview assets present
+PASS - index.html remains at repository root for GitHub Pages
 
-Backend representation:
-- GitHub Pages cannot execute Python/Flask/Django server code. Admin and Django projects therefore include interactive static showcases designed to demonstrate the workflows while keeping the portfolio deployable as a static site.
+IMPORTANT
+Certificate scans/download buttons are not included because original certificate files were not supplied.
+LinkedIn is not linked because a verified profile URL was not supplied.
+A custom domain is not activated because no purchased domain/DNS details were supplied.
