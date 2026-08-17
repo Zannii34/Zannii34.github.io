@@ -8,7 +8,7 @@ UPGRADES INCLUDED
 - Real rendered project-preview images generated from the included demo pages
 - Backend/full-stack evidence for Flask admin and Django task workflows
 - Certificates/coursework section without fabricating certificate files
-- Current projects section for VoraOS/Luna and Distance Nation, clearly marked in development
+- Current projects section for VoraOS/Luna and the private MazeTech Hub website/admin system, clearly marked in development
 - Experience timeline including technical project work and communication experience
 - Correct contact email: wayne.kamachetera@gmail.com
 - Search/social metadata, canonical URL, social preview image, robots.txt and sitemap.xml
