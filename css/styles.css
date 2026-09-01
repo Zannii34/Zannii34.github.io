@@ -33,7 +33,12 @@
 .screenshot-preview:after{display:none!important}
 .screenshot-preview>*{opacity:1!important}
 .project-preview{background:#071522}
-.project-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center;display:block;z-index:1}
+.project-shot{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;object-position:center;display:block;z-index:1;padding:12px;background:rgba(5,12,22,.58);filter:drop-shadow(0 12px 24px rgba(0,0,0,.28))}
+
+:where(a,button,input,select,textarea):focus-visible{outline:3px solid var(--green);outline-offset:3px}
+.project-preview{isolation:isolate}
+.project-preview:before{content:"";position:absolute;inset:0;background:inherit;background-size:cover;background-position:center;filter:blur(10px);transform:scale(1.04);opacity:.42;z-index:0}
+.project-shot,.preview-badge{position:absolute;z-index:2}
 .project-preview .preview-badge{z-index:3}
 .project-proof{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:5px;color:var(--muted);font-size:.72rem}
 .project-proof li:before{content:"✓";color:var(--green);font-weight:900;margin-right:7px}
