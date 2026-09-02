@@ -32,6 +32,7 @@ document.addEventListener('DOMContentLoaded',()=>{
 
   const filterButtons=[...document.querySelectorAll('.project-filter')];
   const projectCards=[...document.querySelectorAll('.portfolio-grid .project-card')];
+  const filterStatus=document.getElementById('projectFilterStatus');
   filterButtons.forEach(button=>button.addEventListener('click',()=>{
     const filter=button.dataset.filter;
     filterButtons.forEach(b=>{b.classList.remove('active');b.setAttribute('aria-pressed','false')});
@@ -41,6 +42,10 @@ document.addEventListener('DOMContentLoaded',()=>{
       const show=filter==='all'||categories.includes(filter);
       card.hidden=!show;
     });
+    if(filterStatus){
+      const visibleCount=projectCards.filter(card=>!card.hidden).length;
+      filterStatus.textContent=`Showing ${visibleCount} ${button.textContent.trim()} project${visibleCount===1?'':'s'}.`;
+    }
   }));
 
   const copyButton=document.getElementById('copyEmail');
