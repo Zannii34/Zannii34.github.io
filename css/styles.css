@@ -417,3 +417,19 @@ button,input,select,textarea{
   .project-tags span{font-size:.6rem}
   .theme-toggle{right:12px;bottom:12px}
 }
+
+/* V10 — keep the shared screenshot badge out of Pokémon artwork styles */
+.pokemon-preview > .preview-badge{
+  width:auto;
+  height:auto;
+  display:block;
+  place-items:initial;
+  border-radius:999px;
+  padding:7px 10px;
+  background:#071525d9;
+  color:#9ae36d;
+  font:800 .62rem Inter,sans-serif;
+  letter-spacing:.1em;
+  line-height:1.2;
+  box-shadow:none;
+}
