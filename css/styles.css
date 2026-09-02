@@ -433,3 +433,30 @@ button,input,select,textarea{
   line-height:1.2;
   box-shadow:none;
 }
+
+/* V11 — keep project screenshots full-width and vertically balanced */
+.portfolio-grid .project-card,
+.portfolio-grid .project-featured{
+  grid-template-columns:minmax(0,1fr);
+  grid-template-rows:auto minmax(0,1fr);
+  min-height:0;
+}
+.portfolio-grid .project-preview{
+  width:100%;
+  min-height:0;
+  aspect-ratio:8 / 5;
+}
+.portfolio-grid .project-shot{
+  width:100%;
+  height:100%;
+  padding:12px;
+  object-fit:contain;
+  object-position:center;
+  opacity:1;
+}
+
+@media (max-width:640px){
+  .portfolio-grid .project-shot{
+    object-position:center;
+  }
+}
