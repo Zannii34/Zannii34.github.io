@@ -662,3 +662,31 @@ body.light-mode .credential-box hr { border-color: #d6e3f0 !important; }
 body.light-mode .developer-screen {
   background: linear-gradient(135deg, #07111d, #081a30 65%, #10294e) !important;
 }
+/* V13b - NUKE dark backgrounds in light mode */
+html body.light-mode .project-card,
+html body.light-mode .project-featured,
+html body.light-mode .skill-category,
+html body.light-mode .capability-grid > article,
+html body.light-mode .study-grid > article,
+html body.light-mode .certificate-grid > article,
+html body.light-mode .experience-card,
+html body.light-mode .education-grid > article,
+html body.light-mode .current-grid > article,
+html body.light-mode .panel-card,
+html body.light-mode .about-card,
+html body.light-mode .timeline-card,
+html body.light-mode .contact-card,
+html body.light-mode .featured-tile > article {
+  background: #ffffff !important;
+  background-image: none !important;
+  color: #071525 !important;
+  border-color: #d6e3f0 !important;
+}
+html body.light-mode .project-body {
+  background: #ffffff !important;
+  background-image: none !important;
+}
+html body.light-mode .trust-strip {
+  background: #ffffff !important;
+  background-image: none !important;
+}
