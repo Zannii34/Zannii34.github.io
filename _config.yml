@@ -1,0 +1,5 @@
+﻿exclude:
+  - docs/
+  - LICENSE
+  - README.md
+  - _config.yml
