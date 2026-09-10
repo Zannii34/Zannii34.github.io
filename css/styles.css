@@ -486,3 +486,29 @@ section[id] {
   }
   body { background: #fff !important; color: #000 !important; }
 }
+
+/* ============================================
+   V12 — recruiter UX polish
+   ============================================ */
+section[id] {
+  scroll-margin-top: 90px;
+}
+:where(a, button, input, select, textarea):focus-visible {
+  outline: 3px solid var(--green);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+.hero-actions .btn[href^="mailto"] {
+  border-color: rgba(22, 119, 255, 0.55);
+  background: rgba(22, 119, 255, 0.08);
+}
+.hero-actions .btn[href^="mailto"]:hover {
+  background: rgba(22, 119, 255, 0.16);
+}
+@media print {
+  .site-header, .theme-toggle, .hero-visual, .hero-actions,
+  .project-filters, .project-actions, .contact-copy, .site-footer {
+    display: none !important;
+  }
+  body { background: #fff !important; color: #000 !important; }
+}
