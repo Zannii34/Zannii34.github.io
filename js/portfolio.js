@@ -1,5 +1,5 @@
 /* ============================================
-   Portfolio — Interactive UX Layer
+   Portfolio - Interactive UX Layer
    ============================================ */
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   /* ---------- ACTIVE SECTION HIGHLIGHT ---------- */
   const sections = document.querySelectorAll("section[id]");
-  const navLinks = document.querySelectorAll(".main-nav a[href^=\
+  const navLinks = document.querySelectorAll('.main-nav a[href^="#"]');
 
   if (sections.length && navLinks.length) {
     const observer = new IntersectionObserver((entries) => {
@@ -39,6 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   /* ---------- SMOOTH SCROLL WITH OFFSET ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener("click", function (e) {
       const href = this.getAttribute("href");
       if (href === "#" || href === "#top") return;
@@ -62,12 +63,12 @@ document.addEventListener("DOMContentLoaded", () => {
         const strong = copyBtn.querySelector("strong");
         if (strong) {
           const original = strong.textContent;
-          strong.textContent = "Email Copied ✓";
+          strong.textContent = "Email Copied \u2713";
           strong.style.color = "#22c55e";
           setTimeout(() => {
             strong.textContent = original;
             strong.style.color = "";
-          }, 1800);
+          }, 2000);
         }
       } catch (err) {
         window.location.href = "mailto:" + email;
@@ -78,8 +79,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /* ---------- BACK TO TOP BUTTON ---------- */
   const backToTop = document.createElement("button");
   backToTop.id = "backToTop";
-  backToTop.setAttribute("aria-label", "Back to top");
-  backToTop.innerHTML = "↑";
+  backToTop.innerHTML = "\u2191";
   backToTop.style.cssText = `
     position: fixed;
     bottom: 90px;
