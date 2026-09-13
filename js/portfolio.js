@@ -80,25 +80,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const backToTop = document.createElement("button");
   backToTop.id = "backToTop";
   backToTop.innerHTML = "\u2191";
-  backToTop.style.cssText = `
-    position: fixed;
-    bottom: 90px;
-    right: 22px;
-    width: 46px;
-    height: 46px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, #1677ff, #0a5cc7);
-    color: white;
-    border: none;
-    font-size: 1.3rem;
-    font-weight: 700;
-    cursor: pointer;
-    box-shadow: 0 6px 20px rgba(22,119,255,0.35);
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s, visibility 0.3s, transform 0.2s;
-    z-index: 40;
-  `;
+  backToTop.style.cssText = "position: fixed; bottom: 90px; right: 22px; width: 46px; height: 46px; border-radius: 50%; background: linear-gradient(135deg, #1677ff, #0a5cc7); color: white; border: none; font-size: 1.3rem; font-weight: 700; cursor: pointer; box-shadow: 0 6px 20px rgba(22,119,255,0.35); opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s, transform 0.2s; z-index: 40;";
   document.body.appendChild(backToTop);
 
   window.addEventListener("scroll", () => {
