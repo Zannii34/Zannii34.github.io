@@ -53,29 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  /* ---------- COPY EMAIL BUTTON ---------- */
-  const copyBtn = document.getElementById("copyEmail");
-  if (copyBtn) {
-    copyBtn.addEventListener("click", async () => {
-      const email = copyBtn.dataset.email || "wayne.kamachetera@gmail.com";
-      try {
-        await navigator.clipboard.writeText(email);
-        const strong = copyBtn.querySelector("strong");
-        if (strong) {
-          const original = strong.textContent;
-          strong.textContent = "Email Copied \u2713";
-          strong.style.color = "#22c55e";
-          setTimeout(() => {
-            strong.textContent = original;
-            strong.style.color = "";
-          }, 2000);
-        }
-      } catch (err) {
-        window.location.href = "mailto:" + email;
-      }
-    });
-  }
-
   /* ---------- BACK TO TOP BUTTON ---------- */
   const backToTop = document.createElement("button");
   backToTop.id = "backToTop";
