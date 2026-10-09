@@ -3,3 +3,7 @@ combined.txt
 *.bak
 *.bak-*
 _old/
+_fix_backup_*/
+_pre_fix_everything_*/
+_fix_*.py
+_fix_all.py
