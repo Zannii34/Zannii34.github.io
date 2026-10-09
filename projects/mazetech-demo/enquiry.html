@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/>
+<title>Request a Quote — MazeTech Demo</title>
+<link rel="stylesheet" href="css/style.css"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@600;700&display=swap" rel="stylesheet"/>
+</head>
+<body>
+
+<div class="demo-banner">
+  ⚠ Demo form — nothing is sent anywhere. Shows how the real enquiry workflow works.
+</div>
+
+<header class="site-header">
+  <a class="brand" href="index.html">
+    <span class="brand-mark">MT</span>
+    <div><strong>MazeTech Hub</strong><small>Request a Quote</small></div>
+  </a>
+  <nav class="main-nav">
+    <a href="index.html">Home</a>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="enquiry.html" class="active">Request a Quote</a>
+    <a href="../mazetech-showcase/" class="ghost">← Back to Portfolio</a>
+  </nav>
+</header>
+
+<section class="form-page">
+  <div class="form-copy">
+    <span class="eyebrow">HOW IT WORKS</span>
+    <h1>Tell us what you need.</h1>
+    <p>In the production system, this form creates a new enquiry record, assigns a reference number, and notifies the admin dashboard. An admin then generates a formal quote with line items, which is sent back to the customer by email.</p>
+    <ul class="flow-steps">
+      <li><b>1.</b> Customer submits enquiry</li>
+      <li><b>2.</b> Admin reviews and generates quote</li>
+      <li><b>3.</b> Customer receives quote by email</li>
+      <li><b>4.</b> Quote accepted → job booked</li>
+    </ul>
+  </div>
+
+  <form class="enquiry-form" id="enquiryForm">
+    <div class="form-row">
+      <label for="name">Your name</label>
+      <input id="name" type="text" placeholder="e.g. John D." required/>
+    </div>
+    <div class="form-row">
+      <label for="email">Email</label>
+      <input id="email" type="email" placeholder="you@example.com" required/>
+    </div>
+    <div class="form-row">
+      <label for="phone">Phone (optional)</label>
+      <input id="phone" type="tel" placeholder="+27 00 000 0000"/>
+    </div>
+    <div class="form-row">
+      <label for="service">Service needed</label>
+      <select id="service">
+        <option value="">— Choose —</option>
+        <option>CCTV &amp; Cameras</option>
+        <option>Access Control</option>
+        <option>Intercom System</option>
+        <option>Cabling &amp; Networking</option>
+        <option>Monitoring</option>
+        <option>Support &amp; Maintenance</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="notes">Details</label>
+      <textarea id="notes" rows="4" placeholder="Tell us about your property, existing setup, or specific requirements."></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary full">Submit enquiry (demo)</button>
+    <p class="form-note">On submit, you'll see a mock confirmation. Nothing is sent.</p>
+  </form>
+</section>
+
+<div class="confirmation" id="confirmation">
+  <div class="confirmation-box">
+    <div class="check">✓</div>
+    <h2>Enquiry received (demo)</h2>
+    <p>In the production system, your enquiry would now appear in the admin dashboard with reference <b>Q-2026-0143</b> and status <span class="status new">New</span>.</p>
+    <p>The admin would receive a notification and generate a formal quote, usually within one business day.</p>
+    <p class="demo-note">This is a static demo — nothing was sent.</p>
+    <div style="display:flex; gap:10px; justify-content:center; margin-top:16px;">
+      <a class="btn btn-primary" href="dashboard.html">See admin dashboard</a>
+      <a class="btn btn-secondary" href="index.html">Back to home</a>
+    </div>
+  </div>
+</div>
+
+<script>
+document.getElementById('enquiryForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  document.querySelector('.form-page').style.display = 'none';
+  document.getElementById('confirmation').style.display = 'flex';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+</script>
+
+</body>
+</html>
