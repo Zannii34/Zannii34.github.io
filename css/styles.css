@@ -690,3 +690,65 @@ html body.light-mode .trust-strip {
   background: #ffffff !important;
   background-image: none !important;
 }
+
+
+/* ============================================
+   V14 — homepage consistency polish
+   ============================================ */
+
+/* Equal-height project cards with consistent visual rhythm */
+.portfolio-grid {
+  align-items: stretch;
+  grid-auto-rows: 1fr;
+}
+
+.project-card,
+.project-featured {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1 auto;
+}
+
+.project-body > p {
+  flex: 0 0 auto;
+}
+
+.project-proof {
+  flex: 0 0 auto;
+}
+
+.project-tags {
+  margin-top: auto;
+  padding-top: 15px;
+}
+
+/* Make the "LIVE" / "LIVE DEMO" / "OPEN SOURCE" status badges line up */
+.project-top {
+  align-items: center;
+}
+
+.project-num {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Tighten the trust strip on wide monitors */
+@media (min-width: 1280px) {
+  .trust-strip div {
+    padding: 22px 26px;
+  }
+}
+
+/* Slightly larger project titles on desktop for hierarchy */
+@media (min-width: 900px) {
+  .project-body h3 {
+    font-size: 1.45rem;
+    line-height: 1.2;
+  }
+}

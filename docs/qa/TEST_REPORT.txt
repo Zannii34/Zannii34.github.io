@@ -4,16 +4,16 @@ Generated: 17 August 2026
 IMPLEMENTED
 - Removed the project-card overlay that could visually block project previews.
 - Replaced preview overlays with actual bundled project screenshot images.
-- Added Featured Projects strip for MazeTech Hub, MK Construction, and Business Admin & Quote System.
+- Featured the public MazeTech Hub website and MK Construction concept.
 - Added project filters: All, Full Stack, Backend, Frontend, API, AI / Algorithms.
 - Added concise technical proof points to each project card.
-- Added a safe MazeTech Hub public showcase with no credentials, customer data, private routes, or sensitive security configuration.
+- Added a link to the live MazeTech Hub public website; its private source code is not included.
 - Added GitHub profile access and one-click email copy.
 - Added custom 404 page.
 - Added external API retry/error states to Pokemon and Weather demos.
 - Added accessibility improvements: labels, focus-visible states, aria-live usage, reduced-motion support, responsive controls.
 - Updated CV HTML and PDF; removed telephone interviewing / market research wording.
-- Added MazeTech Hub to selected CV projects.
+- Included the public MazeTech Hub website among selected projects.
 - Updated README and sitemap.
 
 INTENTIONALLY NOT FABRICATED

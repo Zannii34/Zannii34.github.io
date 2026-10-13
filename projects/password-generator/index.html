@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Password Generator | Wayne Kamachetera</title>
+<meta name="description" content="Client-side password generator with adjustable length, character sets, strength meter and copy-to-clipboard.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main>
+<a class="back" href="../../">← Portfolio</a>
+<section class="app">
+<header>
+<small>FRONTEND UTILITY</small>
+<h1>Password Generator</h1>
+<p>Everything runs in your browser. Nothing is sent anywhere.</p>
+</header>
+<div class="output">
+<input id="password" readonly value="" aria-label="Generated password">
+<button id="copy" type="button">Copy</button>
+</div>
+<div class="strength" aria-live="polite">
+<span id="strengthLabel">Strength</span>
+<div class="meter"><div id="meterFill"></div></div>
+</div>
+<form id="options">
+<label class="slider">
+<span>Length: <b id="lenValue">16</b></span>
+<input id="length" type="range" min="8" max="64" value="16">
+</label>
+<fieldset>
+<legend>Include</legend>
+<label><input type="checkbox" id="upper" checked> Uppercase</label>
+<label><input type="checkbox" id="lower" checked> Lowercase</label>
+<label><input type="checkbox" id="digits" checked> Numbers</label>
+<label><input type="checkbox" id="symbols" checked> Symbols</label>
+<label><input type="checkbox" id="noAmbiguous"> Exclude ambiguous (0 O 1 l I)</label>
+</fieldset>
+<button type="submit" class="generate">Generate New Password</button>
+</form>
+<p class="history-note" id="historyNote"></p>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>

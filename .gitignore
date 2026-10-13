@@ -7,3 +7,9 @@ _fix_backup_*/
 _pre_fix_everything_*/
 _fix_*.py
 _fix_all.py
+
+# Scratch / audit files
+_audit_*.txt
+*.before-*
+_backup/
+repo_dump_*.txt

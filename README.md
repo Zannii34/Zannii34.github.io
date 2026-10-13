@@ -15,23 +15,22 @@ Application-focused portfolio for junior software development, full-stack/web de
 - Data capturing and digital administration
 
 ## Featured work
-- MazeTech Hub Website & Admin System - private full-stack business system; public showcase only
-- Business Admin & Quote System - Flask / SQLAlchemy workflow showcase
 - MK Construction & Projects - responsive business website
-- Pokémon Explorer & Team Builder - REST API application
+- PokÃ©mon Explorer & Team Builder - REST API application
 - Weather Dashboard - geolocation and weather API application
 - Django Task Manager - backend workflow showcase
 - Tic-Tac-Toe Minimax AI - algorithm demo
+- Password Generator - client-side security utility (Web Crypto API)
 
 ## Documents
 The portfolio includes a downloadable CV and genuine UniCollege short-programme certificates. The IT Programming programme is listed as coursework undertaken; the qualification was not awarded.
 
 ## Security
-No production credentials, customer records, private database files, environment secrets or protected MazeTech Hub administration source are intentionally published in this portfolio repository.
+No production credentials, private customer records, database files or environment secrets should be published in this portfolio repository.
 
 ## Contact
-Wayne Kamachetera  
-Email: wayne.kamachetera@gmail.com  
-GitHub: https://github.com/Zannii34  
-LinkedIn: https://www.linkedin.com/in/wayne-kamachetera/  
+Wayne Kamachetera
+Email: wayne.kamachetera@gmail.com
+GitHub: https://github.com/Zannii34
+LinkedIn: https://www.linkedin.com/in/wayne-kamachetera-2395752b5/
 Portfolio: https://zannii34.github.io/

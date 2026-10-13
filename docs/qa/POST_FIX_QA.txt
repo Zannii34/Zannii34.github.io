@@ -1,0 +1,9 @@
+POST-FIX QA - 2026-10-13
+
+Actions:
+- Removed scratch files from repo root.
+- Updated .gitignore.
+- Rewrote sitemap.xml (removed dead admin-system URLs).
+- Added projects/password-generator/ (3 files).
+- Added case-studies/password-generator.html.
+- Updated README featured-work list.
