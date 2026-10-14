@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How minimax actually works | Wayne Kamachetera</title>
+<meta name="description" content="The algorithm in 30 lines, the one-line bug that made my AI lose on purpose.">
+<link rel="stylesheet" href="../case-studies/case-study.css">
+<style>
+.post{max-width:720px;padding:40px 0}
+.post h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:8px 0 24px}
+.post h2{font-size:1.4rem;margin:36px 0 14px}
+.post p,.post li{color:var(--muted);line-height:1.75;font-size:.95rem}
+.post code{background:#061421;padding:2px 6px;border-radius:5px;color:#9ae36d;font-size:.85em}
+.post pre{background:#061421;padding:18px;border-radius:10px;overflow-x:auto;color:#c8d9ea;font-size:.82rem;border:1px solid #1e3d5d}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a href="../">&larr; Portfolio</a>
+<span class="tag">WRITING</span>
+</header>
+<main class="post">
+<span class="tag">ALGORITHMS</span>
+<h1>How minimax actually works (with my Tic-Tac-Toe AI)</h1>
+<p>Minimax is one of those algorithms every AI course teaches and almost nobody implements. It sounds simple and then you write it and it does something weird.</p>
+
+<h2>What minimax does</h2>
+<p>Consider the game tree. Every node is a board state. Root is the current position. Children are available moves. Leaves are terminal (win, loss, draw).</p>
+<p>Scores: +10 for AI win, -10 for AI loss, 0 for draw.</p>
+<p>For non-terminal nodes:</p>
+<ul>
+<li>Maximising player (AI): score = max of children</li>
+<li>Minimising player (human): score = min of children</li>
+</ul>
+<p>That is it.</p>
+
+<h2>The code</h2>
+<pre>function minimax(board, isMaximising) {
+  const result = checkWinner(board);
+  if (result === "O") return 10;
+  if (result === "X") return -10;
+  if (result === "draw") return 0;
+
+  let best = isMaximising ? -Infinity : Infinity;
+
+  for (let i = 0; i &lt; 9; i++) {
+    if (board[i]) continue;
+    board[i] = isMaximising ? "O" : "X";
+    const score = minimax(board, !isMaximising);
+    board[i] = "";
+    best = isMaximising
+      ? Math.max(best, score)
+      : Math.min(best, score);
+  }
+
+  return best;
+}</pre>
+
+<h2>The bug I hit</h2>
+<p>My first version was unbeatable. My second was not. The difference was one line: I swapped <code>isMaximising</code> in the recursive call, so the AI evaluated its own moves as if they were the opponent. It helpfully set up moves that let me win.</p>
+<p><strong>Lesson:</strong> in recursive algorithms, the argument you pass to the recursive call is where 90% of bugs live. Test with a 3-move game, not a 9-move one.</p>
+
+<h2>Performance</h2>
+<p>Tic-Tac-Toe has at most 9! = 362,880 leaf nodes. Minimax explores all of them in about 50ms in JavaScript. No optimisation needed.</p>
+<p>For bigger games, add alpha-beta pruning: skip branches that cannot possibly be better than what you already found.</p>
+
+<h2>Why this matters</h2>
+<p>Minimax is the foundation of game-playing AI. Alpha-beta pruning is minimax plus a bookmark. If you understand minimax, you understand the family. And it takes about 30 lines.</p>
+</main>
+<footer class="footer">Wayne Kamachetera &bull; Website Design &bull; Full-Stack Web &bull; IT Support</footer>
+</div>
+</body>
+</html>

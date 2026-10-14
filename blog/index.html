@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Writing | Wayne Kamachetera</title>
+<meta name="description" content="Short technical writeups on deployment, security, and algorithms - from projects I have shipped.">
+<link rel="stylesheet" href="../case-studies/case-study.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a href="../">&larr; Wayne Kamachetera</a>
+<span class="tag">WRITING</span>
+</header>
+<main>
+<section class="hero" style="grid-template-columns:1fr">
+<div>
+<span class="tag">SHORT TECHNICAL WRITEUPS</span>
+<h1>Writing</h1>
+<p>Notes from projects I have actually shipped. Each post explains one decision, one bug, or one concept in plain language.</p>
+</div>
+</section>
+<section class="grid">
+<article class="card">
+<span class="tag">DEPLOYMENT</span>
+<h2><a href="01-flask-caddy-waitress.html" style="color:inherit;text-decoration:none">Deploying Flask with Caddy and Waitress (and why I stopped using nginx)</a></h2>
+<p>Three tools, one config file, automatic TLS. Why this is enough for a small production Flask app - and what broke when I first deployed it.</p>
+<p><a class="mini-action" href="01-flask-caddy-waitress.html">Read post &rarr;</a></p>
+</article>
+<article class="card">
+<span class="tag">SECURITY</span>
+<h2><a href="02-crypto-random.html" style="color:inherit;text-decoration:none">Why I use crypto.getRandomValues, not Math.random</a></h2>
+<p>Two lines of code separate a secure password generator from a predictable one. Here is what changed in mine, and the modulo bias bug I introduced along the way.</p>
+<p><a class="mini-action" href="02-crypto-random.html">Read post &rarr;</a></p>
+</article>
+<article class="card">
+<span class="tag">ALGORITHMS</span>
+<h2><a href="03-minimax.html" style="color:inherit;text-decoration:none">How minimax actually works (with my Tic-Tac-Toe AI)</a></h2>
+<p>The algorithm in 30 lines, the one-line bug that made my AI lose on purpose, and why you should test recursive functions on a 3-move game first.</p>
+<p><a class="mini-action" href="03-minimax.html">Read post &rarr;</a></p>
+</article>
+</section>
+</main>
+<footer class="footer">Wayne Kamachetera &bull; Website Design &bull; Full-Stack Web &bull; IT Support</footer>
+</div>
+</body>
+</html>

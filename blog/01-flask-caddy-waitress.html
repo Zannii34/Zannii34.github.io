@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Deploying Flask with Caddy and Waitress | Wayne Kamachetera</title>
+<meta name="description" content="Three tools, one config file, automatic TLS. Why this is enough for a small production Flask app.">
+<link rel="stylesheet" href="../case-studies/case-study.css">
+<style>
+.post{max-width:720px;padding:40px 0}
+.post h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:8px 0 24px}
+.post h2{font-size:1.4rem;margin:36px 0 14px}
+.post p,.post li{color:var(--muted);line-height:1.75;font-size:.95rem}
+.post code{background:#061421;padding:2px 6px;border-radius:5px;color:#9ae36d;font-size:.85em}
+.post pre{background:#061421;padding:18px;border-radius:10px;overflow-x:auto;color:#c8d9ea;font-size:.82rem;border:1px solid #1e3d5d}
+.post blockquote{border-left:3px solid var(--blue);padding:6px 18px;margin:18px 0;color:var(--muted);font-style:italic}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a href="../">&larr; Portfolio</a>
+<span class="tag">WRITING</span>
+</header>
+<main class="post">
+<span class="tag">DEPLOYMENT</span>
+<h1>Deploying Flask with Caddy and Waitress (and why I stopped using nginx)</h1>
+<p>Every Flask tutorial tells you to run <code>flask run</code> in production. Every Flask tutorial is wrong. Here is what I ended up with after deploying to a real VPS.</p>
+
+<h2>The stack</h2>
+<ul>
+<li><strong>Caddy</strong> - reverse proxy, automatic TLS via ACME</li>
+<li><strong>Waitress</strong> - pure-Python WSGI server</li>
+<li><strong>Flask</strong> - the app</li>
+</ul>
+<p>That is it.</p>
+
+<h2>Why Caddy over nginx</h2>
+<p>The single deciding factor: Caddy renews certificates automatically. With nginx, you configure certbot, add a cron job, and six months later discover the job did not run.</p>
+<p>Caddy config for a Flask app:</p>
+<pre>mazetechhub.co.za {
+    reverse_proxy localhost:8000
+}</pre>
+<p>That is the whole config. TLS, HTTP to HTTPS redirect, and reverse proxy in three lines.</p>
+
+<h2>Why Waitress over gunicorn</h2>
+<p>I develop on Windows and deploy on Linux. Gunicorn does not run on Windows. Waitress does. Same WSGI server in dev and prod means less "works on my machine."</p>
+
+<h2>What broke</h2>
+<p><strong>SQLite + concurrency = silent failures.</strong> My enquiry form returned 200 but the row was not in the database. SQLite was locking during concurrent writes. Fix: enable WAL mode and retry with backoff. Make failures return 500, not 200.</p>
+<p><strong>Caddy does not run your app.</strong> Caddy reverse-proxies. Something has to actually run Waitress. This is where one config file became two.</p>
+
+<h2>What I would do differently</h2>
+<ul>
+<li>Add health-check monitoring from day one</li>
+<li>Version the Caddyfile in the repo</li>
+<li>Write the Waitress unit as a template</li>
+</ul>
+
+<h2>The point</h2>
+<p>You do not need Kubernetes to deploy a Flask app. You need three tools and the discipline to notice when things are silently failing.</p>
+</main>
+<footer class="footer">Wayne Kamachetera &bull; Website Design &bull; Full-Stack Web &bull; IT Support</footer>
+</div>
+</body>
+</html>

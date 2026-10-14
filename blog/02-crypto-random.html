@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Why I use crypto.getRandomValues, not Math.random | Wayne Kamachetera</title>
+<meta name="description" content="Two lines of code separate a secure password generator from a predictable one.">
+<link rel="stylesheet" href="../case-studies/case-study.css">
+<style>
+.post{max-width:720px;padding:40px 0}
+.post h1{font-size:clamp(2rem,5vw,3rem);line-height:1.1;margin:8px 0 24px}
+.post h2{font-size:1.4rem;margin:36px 0 14px}
+.post p,.post li{color:var(--muted);line-height:1.75;font-size:.95rem}
+.post code{background:#061421;padding:2px 6px;border-radius:5px;color:#9ae36d;font-size:.85em}
+.post pre{background:#061421;padding:18px;border-radius:10px;overflow-x:auto;color:#c8d9ea;font-size:.82rem;border:1px solid #1e3d5d}
+.post blockquote{border-left:3px solid var(--blue);padding:6px 18px;margin:18px 0;color:var(--muted);font-style:italic}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a href="../">&larr; Portfolio</a>
+<span class="tag">WRITING</span>
+</header>
+<main class="post">
+<span class="tag">SECURITY</span>
+<h1>Why I use crypto.getRandomValues, not Math.random</h1>
+<p>I built a password generator. The first version used <code>Math.random()</code> because that is what every tutorial uses. Then I read the MDN page.</p>
+
+<blockquote>Note: Math.random() does not provide cryptographically secure random numbers. Do not use them for anything related to security.</blockquote>
+
+<h2>What Math.random() actually returns</h2>
+<p>A double-precision float between 0 and 1. In V8, it is xorshift128+. Fast, deterministic given internal state, not cryptographically secure.</p>
+<p>"Not cryptographically secure" means: observe enough outputs, predict future ones. For a password generator, that is catastrophic.</p>
+
+<h2>What crypto.getRandomValues() returns</h2>
+<p>Bytes from the OS CSPRNG: <code>getrandom(2)</code> on Linux, <code>BCryptGenRandom</code> on Windows, <code>SecRandomCopyBytes</code> on macOS. The same sources the OS uses for TLS keys.</p>
+
+<h2>The code change</h2>
+<p>Before:</p>
+<pre>pw += chars[Math.floor(Math.random() * chars.length)];</pre>
+<p>After:</p>
+<pre>const bytes = new Uint32Array(length);
+crypto.getRandomValues(bytes);
+for (let i = 0; i &lt; length; i++) pw += chars[bytes[i] % chars.length];</pre>
+<p>Two lines changed. That is the whole fix.</p>
+
+<h2>The subtle bug I introduced</h2>
+<p>Modulo bias. If <code>chars.length</code> does not evenly divide 2^32, some characters are slightly more likely than others. The bias is tiny for 62 characters, but it exists. The proper fix is rejection sampling.</p>
+
+<h2>What this taught me</h2>
+<p>Every obvious choice in code has a default and a correct choice. Math.random() is the default. crypto.getRandomValues() is the correct choice for anything security-adjacent.</p>
+</main>
+<footer class="footer">Wayne Kamachetera &bull; Website Design &bull; Full-Stack Web &bull; IT Support</footer>
+</div>
+</body>
+</html>
