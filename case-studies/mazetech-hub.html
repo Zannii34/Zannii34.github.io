@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MazeTech Hub - Live Business Website Case Study</title>
+<meta name="description" content="Engineering case study for a live production business website: architecture, decisions, and lessons learned.">
+<link rel="stylesheet" href="case-study.css">
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a href="../">&larr; Wayne Kamachetera</a>
+<span class="tag">LIVE PRODUCTION PROJECT</span>
+</header>
+<main>
+<section class="hero">
+<div>
+<span class="tag">PRODUCTION WEBSITE</span>
+<h1>MazeTech Hub</h1>
+<p>A live business website for a security-systems and IT company. Designed, built, deployed and maintained by me. This case study explains the engineering, not just the visuals.</p>
+<div class="stack">
+<span>Flask</span><span>SQLAlchemy</span><span>SQLite</span>
+<span>Caddy</span><span>Waitress</span><span>HTML</span><span>CSS</span><span>JavaScript</span>
+</div>
+<div class="actions">
+<a class="btn primary" href="https://mazetechhub.co.za/" target="_blank" rel="noopener">Open Live Site</a>
+<a class="btn" href="../#projects">All Projects</a>
+</div>
+</div>
+<div class="screen">
+<img src="../assets/screenshots/mazetech-live-site.png" alt="MazeTech Hub live website screenshot">
+</div>
+</section>
+<section class="grid">
+
+<div class="card wide" style="border-left:3px solid #e39c3b;background:linear-gradient(180deg,rgba(227,156,59,.08),rgba(7,20,35,.98))">
+<h2 style="margin-bottom:10px">Live site temporarily unavailable</h2>
+<p style="margin:0">The MazeTech Hub production server is currently offline for maintenance. The site is normally reachable at <a href="https://mazetechhub.co.za/" target="_blank" rel="noopener">mazetechhub.co.za</a>. The architecture, decisions and lessons documented on this page reflect the deployed system and are unaffected.</p>
+</div>
+<article class="card">
+<h2>The brief</h2>
+<p>The client needed a website that presented four distinct service lines (CCTV, access control, intercoms, IT support) without confusing visitors, and made it trivial to request a quote. They had no existing web presence.</p>
+</article>
+<article class="card">
+<h2>Constraints</h2>
+<ul>
+<li>Bootstrap budget - hosting had to be cheap or free tier</li>
+<li>Client could not administer a database themselves</li>
+<li>Required a form that actually delivered enquiries (not just thanks)</li>
+<li>South African load-shedding - the site had to survive power cuts at the client end</li>
+<li>No design system existed; brand had to be built from scratch</li>
+</ul>
+</article>
+<article class="card wide">
+<h2>Architecture</h2>
+<p>I split the project into two layers: a static public site and a small Flask application for dynamic pieces (enquiry submission, admin views for the client). This lets the public pages stay fast and cacheable while keeping the admin isolated.</p>
+<pre style="background:#061421;padding:16px;border-radius:10px;overflow:auto;font-size:.8rem;color:#c8d9ea">
+Visitor
+  |
+  v
+Caddy (reverse proxy, HTTPS, auto-cert)
+  |
+  v
+Waitress (WSGI server, 4 workers)
+  |
+  +---> Static files (HTML, CSS, images)
+  |
+  +---> Flask app
+         |
+         v
+       SQLAlchemy
+         |
+         v
+       SQLite (WAL mode)
+</pre>
+<p><strong>Why this stack:</strong> Caddy handles TLS automatically, which removed an entire class of certificate-expiry outages. Waitress is more stable than Flask dev server for a single-process deployment on a small VPS. SQLite is fine here - the write volume is a handful of enquiries per day, and WAL mode handles the concurrent reads that static assets generate.</p>
+</article>
+<article class="card">
+<h2>Public site</h2>
+<ul>
+<li>Responsive layout with a service-first information architecture</li>
+<li>Each service line has its own landing section, not just a bullet point</li>
+<li>Contact CTA appears in the header, hero, and footer</li>
+<li>Structured metadata, sitemap, and analytics</li>
+<li>Page weight kept under 400 KB</li>
+</ul>
+</article>
+<article class="card">
+<h2>Admin system</h2>
+<ul>
+<li>Protected login (session-based)</li>
+<li>Quote request inbox with status tracking</li>
+<li>Customer records linked to enquiries</li>
+<li>Search and filter across the enquiry history</li>
+<li>CSV export for client own records</li>
+</ul>
+<p style="font-size:.8rem;color:#8ca6be">Backend source and admin credentials are kept private. This case study is public; the code is not.</p>
+</article>
+<article class="card wide">
+<h2>One hard decision: Flask over Django</h2>
+<p>Django would have given me the admin for free. I chose Flask anyway because:</p>
+<ul>
+<li>The public site is static HTML - Django ORM and templating would have been dead weight on 90% of traffic</li>
+<li>The admin needed a specific workflow (quote to customer to status), not a generic CRUD grid</li>
+<li>Flask let me keep the whole app under ~800 lines of Python, which I can reason about completely</li>
+<li>Deployment is one process with SQLite, not Django plus Postgres plus Redis</li>
+</ul>
+<p>Would I make the same call for a 20-table application? No. Django admin would pay for itself there.</p>
+</article>
+<article class="card">
+<h2>What broke in production</h2>
+<p><strong>Incident 1 - Silent form failures.</strong> Enquiries were being accepted with a 200 response but never reaching the database, because SQLite was locked during concurrent writes. Fix: enabled WAL mode and added a retry with backoff around the insert. Now the form returns 500 if it cannot persist, so failures are visible.</p>
+<p><strong>Incident 2 - Certificate renewal.</strong> The initial deployment used a manual cert renewal script I forgot to schedule. Fix: replaced with Caddy automatic ACME.</p>
+</article>
+<article class="card">
+<h2>What I would do differently</h2>
+<ul>
+<li>Add an uptime monitor from day one (currently checking manually)</li>
+<li>Use a proper mail provider for enquiry notifications, not SMTP from the server</li>
+<li>Write the admin CSV export as a streaming response - it will break at scale</li>
+<li>Add a backup script that runs daily and verifies the dump is readable</li>
+</ul>
+</article>
+<article class="card wide">
+<h2>Outcome</h2>
+<p>The site is live at <a href="https://mazetechhub.co.za/" target="_blank" rel="noopener">mazetechhub.co.za</a>. It presents four service lines clearly, captures enquiries reliably, and gives the client a private admin to manage quote requests without technical help. This is the project that taught me more about production reliability than any course.</p>
+</article>
+</section>
+</main>
+<footer class="footer">Wayne Kamachetera - Website Design - Full-Stack Web - IT Support</footer>
+</div>
+</body>
+</html>
