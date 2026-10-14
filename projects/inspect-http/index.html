@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>inspect-http | Wayne Kamachetera</title>
+<meta name="description" content="A single-file CLI tool that inspects HTTP responses: status, headers, timing, and security headers.">
+<link rel="stylesheet" href="../../case-studies/case-study.css">
+<style>
+.cmd{background:#061421;border:1px solid #1e3d5d;border-radius:12px;padding:22px;font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.78rem;color:#c8d9ea;overflow-x:auto;line-height:1.6;white-space:pre}
+.cmd .g{color:#9ae36d}
+.cmd .r{color:#e35b5b}
+.cmd .b{color:#42a5ff}
+.cmd .d{color:#6a7a8d}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top">
+<a href="../../">&larr; Wayne Kamachetera</a>
+<span class="tag">CLI TOOL</span>
+</header>
+<main>
+<section class="hero">
+<div>
+<span class="tag">PYTHON &bull; CLI &bull; ZERO DEPENDENCIES</span>
+<h1>inspect-http</h1>
+<p>A single-file CLI tool that inspects HTTP responses: status code, timing, headers and security posture. Runs on any Python 3.8+ with no dependencies.</p>
+<div class="stack">
+<span>Python</span><span>stdlib only</span><span>argparse</span><span>urllib</span><span>ANSI colour</span>
+</div>
+<div class="actions">
+<a class="btn primary" href="https://github.com/Zannii34/inspect-http" target="_blank" rel="noopener">View on GitHub &nearr;</a>
+<a class="btn" href="../../#projects">All Projects</a>
+</div>
+</div>
+<div class="cmd">$ <span class="b">inspect-http</span> https://zannii34.github.io
+
+<span class="d">  inspect-http v0.1.0</span>
+<span class="d">  ----------------------------------------</span>
+
+  <span class="d">URL        </span> https://zannii34.github.io
+  <span class="d">Status     </span> <span class="g">200 OK</span>
+  <span class="d">Time       </span> 88ms
+  <span class="d">Size       </span> 43.0 KB
+  <span class="d">Server     </span> GitHub.com
+  <span class="d">Content    </span> text/html; charset=utf-8
+  <span class="d">Encoding   </span> <span class="d">(none)</span>
+
+  <span class="b">Timing</span>
+    TTFB      78ms
+    Total     88ms
+
+  <span class="b">Redirects</span>
+    <span class="d">(none)</span>
+
+  <span class="b">Security Headers</span>
+    <span class="g">+</span> Strict-Transport-Security
+    <span class="r">-</span> X-Content-Type-Options <span class="d">(missing)</span>
+    <span class="r">-</span> X-Frame-Options <span class="d">(missing)</span>
+    <span class="r">-</span> Content-Security-Policy <span class="d">(missing)</span>
+    <span class="r">-</span> Referrer-Policy <span class="d">(missing)</span>
+</div>
+</section>
+
+<section class="grid">
+
+<article class="card">
+<h2>The problem</h2>
+<p>When you deploy a site, you want to know three things fast: is HTTPS working, are the security headers set, and how slow is the first byte. curl and httpie print raw headers. Neither gives you a summary. I wanted one command that did.</p>
+</article>
+
+<article class="card">
+<h2>What it does</h2>
+<ul>
+<li>Follows redirects and reports the final URL</li>
+<li>Prints status, timing, size, server, content type, encoding</li>
+<li>Measures time-to-first-byte and total</li>
+<li>Checks five common security headers</li>
+<li>Exit code 0 for 2xx, 1 for connection failures</li>
+</ul>
+</article>
+
+<article class="card wide">
+<h2>Technical decisions</h2>
+<ul>
+<li><strong>Stdlib only.</strong> No requests, no httpx, no click. The whole tool fits in 150 lines and runs anywhere Python 3.8+ is installed, including servers where you cannot pip install anything.</li>
+<li><strong>argparse over click.</strong> The tool takes one URL and one optional timeout. click is overkill.</li>
+<li><strong>Auto-disable colour when output is not a TTY.</strong> Piping to less or a file gives clean text without escape codes.</li>
+<li><strong>Exit codes.</strong> Non-2xx returns 0 (the response was fine). Connection failure returns 1 (the server could not be reached). Scripts can branch on this.</li>
+</ul>
+</article>
+
+<article class="card">
+<h2>Limitations</h2>
+<ul>
+<li>No DNS / TCP / TLS timing split, because urllib does not expose them</li>
+<li>No HTTP/2 support (stdlib does not do it)</li>
+<li>No cookie jar or authentication</li>
+<li>Single-request only; no load testing</li>
+</ul>
+</article>
+
+<article class="card">
+<h2>What I learned</h2>
+<p>Writing a good CLI is mostly about restraint. Every feature you do not add makes the tool faster to run and easier to remember. The tricky part was detecting whether to use colour and resetting it correctly so piped output stays clean.</p>
+</article>
+
+<article class="card wide">
+<h2>Source</h2>
+<p>Full source, README and usage examples on GitHub: <a href="https://github.com/Zannii34/inspect-http" target="_blank" rel="noopener">github.com/Zannii34/inspect-http</a>.</p>
+</article>
+
+</section>
+</main>
+<footer class="footer">Wayne Kamachetera &bull; Website Design &bull; Full-Stack Web &bull; IT Support</footer>
+</div>
+</body>
+</html>
